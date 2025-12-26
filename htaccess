@@ -1,0 +1,8 @@
+ErrorDocument 403 /page102844786.html
+ErrorDocument 404 /page102844786.html
+
+DirectoryIndex page97993886.html
+
+RewriteEngine On
+
+
