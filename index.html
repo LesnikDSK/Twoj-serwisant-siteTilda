@@ -601,32 +601,47 @@ window.tildastatcookie='no';setTimeout(function(){(function(d,w,k,o,g) {var n=d.
 </html>
 
 <div id="rec1635144721" class="r t-rec t-rec_pt_15 t-rec_pb_15" style="padding-top:15px;padding-bottom:15px;background-color:#808080; height:80px;" data-animationappear="off" data-record-type="389" data-bg-color="#808080">
-  <div style="display:flex; align-items:center; justify-content:center; gap:40px; height:100%; padding:0 20px; flex-wrap:wrap;">
+  <div style="display:flex; align-items:center; justify-content:center; gap:40px; height:100%; padding:0 20px; width:100%;">
     
     <!-- Логотип -->
-    <div style="color:#ffffff !important; font-size:20px; font-weight:700; white-space:nowrap;">
+    <div style="color:#ffffff !important; font-size:20px !important; font-weight:700 !important; white-space:nowrap !important; flex-shrink:0 !important;">
       Twój Serwisant
     </div>
     
     <!-- Меню -->
-    <a href="#servises" style="color:#fae6ac !important; text-decoration:none !important; font-size:14px !important; font-weight:500 !important; white-space:nowrap !important;">Co robimy</a>
-    <a href="#uslugi" style="color:#fae6ac !important; text-decoration:none !important; font-size:14px !important; font-weight:500 !important; white-space:nowrap !important;">Cennik usług</a>
-    <a href="#reviews" style="color:#fae6ac !important; text-decoration:none !important; font-size:14px !important; font-weight:500 !important; white-space:nowrap !important;">Opinie</a>
-    <a href="#kontakts" style="color:#fae6ac !important; text-decoration:none !important; font-size:14px !important; font-weight:500 !important; white-space:nowrap !important;">Kontakt</a>
-    <a href="/page100082036.html" target="_blank" style="color:#fae6ac !important; text-decoration:none !important; font-size:14px !important; font-weight:500 !important; white-space:nowrap !important;">Polityka</a>
-    <a href="#top" style="color:#fae6ac !important; text-decoration:none !important; font-size:14px !important; font-weight:500 !important; white-space:nowrap !important;">W górę</a>
+    <a href="#servises" style="color:#fae6ac !important; text-decoration:none !important; font-size:14px !important; font-weight:500 !important; white-space:nowrap !important; flex-shrink:0 !important;">Co robimy</a>
+    <a href="#uslugi" style="color:#fae6ac !important; text-decoration:none !important; font-size:14px !important; font-weight:500 !important; white-space:nowrap !important; flex-shrink:0 !important;">Cennik usług</a>
+    <a href="#reviews" style="color:#fae6ac !important; text-decoration:none !important; font-size:14px !important; font-weight:500 !important; white-space:nowrap !important; flex-shrink:0 !important;">Opinie</a>
+    <a href="#kontakts" style="color:#fae6ac !important; text-decoration:none !important; font-size:14px !important; font-weight:500 !important; white-space:nowrap !important; flex-shrink:0 !important;">Kontakt</a>
+    <a href="/page100082036.html" target="_blank" style="color:#fae6ac !important; text-decoration:none !important; font-size:14px !important; font-weight:500 !important; white-space:nowrap !important; flex-shrink:0 !important;">Polityka</a>
+    <a href="#top" style="color:#fae6ac !important; text-decoration:none !important; font-size:14px !important; font-weight:500 !important; white-space:nowrap !important; flex-shrink:0 !important;">W górę</a>
     
   </div>
   
   <style>
+    #rec1635144721 {
+      min-height: 80px !important;
+    }
+    #rec1635144721 div {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      justify-content: center !important;
+      align-items: center !important;
+      gap: 40px !important;
+      overflow-x: auto !important;
+      padding: 0 20px !important;
+    }
     #rec1635144721 a:hover {
-      color:#ffffff !important;
+      color: #ffffff !important;
       transition: color 0.3s ease !important;
     }
-    @media (max-width:768px) {
+    /* Мобильная адаптация */
+    @media (max-width: 768px) {
       #rec1635144721 div {
-        gap:20px !important;
-        font-size:12px !important;
+        gap: 20px !important;
+        flex-wrap: wrap !important;
+        font-size: 12px !important;
       }
     }
   </style>
