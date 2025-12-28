@@ -555,29 +555,50 @@ window.tildastatcookie='no';setTimeout(function(){(function(d,w,k,o,g) {var n=d.
     title="Serwis komputerowy Twój Serwisant na mapie Google"
   ></iframe>
   
-<div id="rec1614067811" class="r t-rec..." data-record-type="554">
-  <div class="t554">
-    <div class="t554__title t-heading t-heading_sm" field="title">Znajdź nas na GoogleMaps</div>
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .map-container { 
+      margin: 24px auto; 
+      max-width: 450px; 
+      position: relative; 
+      border-radius: 12px; 
+      box-shadow: 0 2px 10px rgba(37,78,112,0.08);
+    }
+    .map-title { 
+      text-align: center; 
+      font-size: 20px; 
+      font-weight: 600; 
+      margin-bottom: 12px; 
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="map-container">
+    <div class="map-title">📍 Znajdź nas na Google Maps</div>
     
-    <!-- ✅ КАРТА С НАВИГАЦИЕЙ -->
-    <div class="t-map" id="separateMap1614067811" 
-         data-map-x="51.1206374" 
-         data-map-y="17.0393749" 
-         data-map-zoom="17"
-         data-map-title="Twój Serwisant">
-    </div>
+    <!-- ✅ АВТОНОМНАЯ КАРТА -->
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2446.684587!2d17.0393749!3d51.1206374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fe9b50e75b4ff%3A0xe83c24387105acf4!2sSerwis%20komputerowy%20Tw%C3%B3j%20Serwisant!5e0!3m2!1spl!2spl!4v1735380000000!5m2!1spl!2spl" 
+      width="100%" 
+      height="450" 
+      style="border:0; border-radius:12px; display:block;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+    
+    <!-- ✅ КНОПКА НАВИГАЦИИ -->
+    <a href="https://www.google.com/maps/dir/?api=1&destination=51.1206374,17.0393749" 
+       target="_blank" 
+       style="display:block; text-align:center; margin-top:12px; background:#000; color:#fff; padding:12px 24px; border-radius:25px; text-decoration:none; font-weight:600; box-shadow:0 4px 12px rgba(0,0,0,0.2);">
+      🚗 Pokaż trasę do serwisu
+    </a>
   </div>
-  
-  <script>
-  var arMapMarkers1614067811=[{
-    title:"Twój Serwisant",
-    descr:"Kliknij dla trasy",
-    lat:"51.1206374",
-    lng:"17.0393749",
-    url:"https://www.google.com/maps/dir/?api=1&destination=51.1206374,17.0393749",  ✅
-    isOpen:false
-  }];
-  </script>
-</div>
+</body>
+</html>
+
 
 
