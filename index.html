@@ -531,7 +531,7 @@ fill="#000000" /> </svg></a></li><!-- /new soclinks --> </ul> </div> </div> </di
 </section>
                                    
  
-<!-- ===== GOOGLE MAPS С КЛИКАБЕЛЬНЫМ МАРКЕРОМ ===== -->
+<!-- ===== GOOGLE MAPS С МАРКЕРОМ GOOGLE STYLE ===== -->
 <div id="rec1614067812" style="padding-top: 0px; padding-bottom: 45px; background-color: #f0f0f0;">
     
     <!-- Основной контейнер -->
@@ -544,7 +544,7 @@ fill="#000000" /> </svg></a></li><!-- /new soclinks --> </ul> </div> </div> </di
             <a href="https://www.google.com/maps/place/51.120663052359866,17.03938604256041/@51.120663052359866,17.03938604256041,15z?entry=ttu&g_ep=EhRSZWN0YW5nbGUgTWFwKHQpEAEo&hl=pl" 
                target="_blank" 
                rel="noopener noreferrer"
-               style="text-decoration: none; display: block; cursor: pointer;">
+               style="text-decoration: none; display: block; cursor: pointer; position: relative;">
                 
                 <div style="width: 100%; position: relative; height: 450px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);">
                     
@@ -560,23 +560,54 @@ fill="#000000" /> </svg></a></li><!-- /new soclinks --> </ul> </div> </div> </di
                         title="Twój Serwisant - Wrocław">
                     </iframe>
                     
-                    <!-- МАРКЕР МАСТЕРСКОЙ (красная точка по центру) -->
+                    <!-- МАРКЕР В СТИЛЕ GOOGLE (красная капля с белой точкой) -->
                     <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -100%); z-index: 10; cursor: pointer;">
-                        <!-- Красный маркер -->
-                        <div style="width: 40px; height: 40px; background-color: #d32f2f; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); border: 3px solid #fff; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); display: flex; align-items: center; justify-content: center;">
-                            <!-- Белая точка в центре маркера -->
-                            <div style="width: 12px; height: 12px; background-color: #fff; border-radius: 50%; transform: rotate(45deg);"></div>
+                        <!-- Маркер Google Style -->
+                        <div style="width: 48px; height: 48px; background-color: #ea4335; border-radius: 50% 50% 50% 0%; transform: rotate(-45deg); border: 3px solid #fff; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25), inset 0 -2px 4px rgba(0, 0, 0, 0.15); display: flex; align-items: center; justify-content: center; position: relative;">
+                            <!-- Белая точка в центре (Google стиль) -->
+                            <div style="width: 14px; height: 14px; background-color: #fff; border-radius: 50%; transform: rotate(45deg); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);"></div>
                         </div>
-                        <!-- Подсказка при наведении -->
-                        <div style="position: absolute; top: -40px; left: 50%; transform: translateX(-50%); background-color: #333; color: #fff; padding: 8px 12px; border-radius: 6px; font-size: 12px; white-space: nowrap; opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 20;">
-                            Клик для перехода на Google Maps
+                        
+                        <!-- Подсказка при наведении (НА ПОЛЬСКОМ) -->
+                        <div style="position: absolute; top: -45px; left: 50%; transform: translateX(-50%); background-color: #333; color: #fff; padding: 8px 12px; border-radius: 6px; font-size: 12px; white-space: nowrap; opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 20; font-weight: 500;">
+                            Kliknij aby otworzyć Mapy Google
+                        </div>
+                        
+                        <!-- Информационное окно с координатами и адресом -->
+                        <div style="position: absolute; top: -130px; left: 50%; transform: translateX(-50%); background-color: #fff; color: #333; padding: 12px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 20; width: 220px; text-align: left; border: 1px solid #e0e0e0;">
+                            <!-- Название места -->
+                            <div style="font-weight: 600; font-size: 14px; margin-bottom: 6px; color: #1a73e8;">
+                                Twój Serwisant
+                            </div>
+                            <!-- Адрес -->
+                            <div style="font-size: 12px; margin-bottom: 6px; line-height: 1.4;">
+                                ul. Henryka Pobożnego 8/1A<br>
+                                50-241 Wrocław, Polska
+                            </div>
+                            <!-- Координаты -->
+                            <div style="font-size: 11px; color: #666; font-family: monospace; background-color: #f5f5f5; padding: 6px 8px; border-radius: 4px; border-left: 3px solid #ea4335;">
+                                📍 51.1207°N, 17.0394°E
+                            </div>
                         </div>
                     </div>
                     
-                    <!-- ОВЕРЛЕЙ ДЛЯ КЛИКА (прозрачный слой для клика) -->
+                    <!-- ОВЕРЛЕЙ ДЛЯ КЛИКА И HOVER ЭФФЕКТОВ -->
                     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 5; cursor: pointer;" 
-                         onmouseover="this.parentElement.querySelector('div:nth-child(2) > div:nth-child(2)').style.opacity='1';"
-                         onmouseout="this.parentElement.querySelector('div:nth-child(2) > div:nth-child(2)').style.opacity='0';"></div>
+                         onmouseover="
+                            const markerParent = this.parentElement.querySelector('div:nth-child(2)');
+                            markerParent.querySelector('div:nth-child(2)').style.opacity='1';
+                            markerParent.querySelector('div:nth-child(3)').style.opacity='1';
+                            const marker = markerParent.querySelector('div:first-child');
+                            marker.style.transform = 'translate(-50%, -100%) scale(1.1)';
+                         "
+                         onmouseout="
+                            const markerParent = this.parentElement.querySelector('div:nth-child(2)');
+                            markerParent.querySelector('div:nth-child(2)').style.opacity='0';
+                            markerParent.querySelector('div:nth-child(3)').style.opacity='0';
+                            const marker = markerParent.querySelector('div:first-child');
+                            marker.style.transform = 'translate(-50%, -100%)';
+                         "
+                         style="transition: none;"></div>
                     
                 </div>
             </a>
@@ -591,15 +622,31 @@ fill="#000000" /> </svg></a></li><!-- /new soclinks --> </ul> </div> </div> </di
             </p>
         </div>
 
+        <!-- Координаты мастерской -->
+        <div style="margin-top: 15px; text-align: center;">
+            <p style="font-size: 13px; color: #666; margin: 0; font-family: monospace;">
+                <span style="color: #ea4335; font-weight: 600;">📍 Współrzędne:</span> 51.1207°N, 17.0394°E
+            </p>
+        </div>
+
         <!-- Кнопка для открытия маршрута -->
         <div style="margin-top: 20px;">
             <a href="https://www.google.com/maps/dir/?api=1&destination=51.120663052359866,17.03938604256041&travelmode=driving&hl=pl" 
                target="_blank" 
                rel="noopener noreferrer"
-               style="display: inline-flex; align-items: center; justify-content: center; padding: 12px 28px; background-color: #f6d578; color: #333333; border: 2px solid #333333; border-radius: 100px; font-size: 16px; font-weight: 800; text-decoration: none; text-transform: uppercase; box-shadow: 0px 10px 40px -2px rgba(0, 11, 48, 0.3); transition: all 0.3s ease-in-out; cursor: pointer;">
+               style="display: inline-flex; align-items: center; justify-content: center; padding: 12px 28px; background-color: #ea4335; color: #fff; border: none; border-radius: 24px; font-size: 14px; font-weight: 600; text-decoration: none; text-transform: uppercase; box-shadow: 0px 8px 24px rgba(234, 67, 53, 0.35); transition: all 0.3s ease-in-out; cursor: pointer;">
                 <span style="margin-right: 8px;">📍</span>
-                <span>Показать маршрут</span>
+                <span>Wyznacz trasę</span>
             </a>
+        </div>
+
+        <!-- Дополнительная информация -->
+        <div style="margin-top: 20px; padding: 15px; background-color: #fff; border-radius: 8px; border-left: 4px solid #ea4335; max-width: 450px; margin-left: auto; margin-right: auto;">
+            <p style="font-size: 13px; color: #666; margin: 0; line-height: 1.6;">
+                <strong style="color: #333;">Godziny pracy:</strong><br>
+                Poniedzialek - Piątek: 9:00 - 18:00<br>
+                Sobota: 10:00 - 14:00
+            </p>
         </div>
         
     </div>
