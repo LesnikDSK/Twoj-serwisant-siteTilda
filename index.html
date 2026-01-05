@@ -531,7 +531,7 @@ fill="#000000" /> </svg></a></li><!-- /new soclinks --> </ul> </div> </div> </di
 </section>
                                    
  
-<!-- ===== GOOGLE MAPS С ПОСТОЯННЫМ НАЗВАНИЕМ И ПОДСВЕТКОЙ АДРЕСА ===== -->
+<!-- ===== GOOGLE MAPS С МАРКЕРОМ В 2 РАЗА МЕНЬШЕ И ЛОГОТИПОМ ===== -->
 <div id="rec1614067812" style="padding-top: 0px; padding-bottom: 45px; background-color: #f0f0f0;">
     
     <!-- Основной контейнер -->
@@ -560,19 +560,31 @@ fill="#000000" /> </svg></a></li><!-- /new soclinks --> </ul> </div> </div> </di
                         title="Twój Serwisant - Profesjonalny serwis komputerowy">
                     </iframe>
                     
-                    <!-- МАРКЕР В ЦЕНТРЕ КАРТЫ (стандартный размер Google) -->
+                    <!-- МАРКЕР В ЦЕНТРЕ КАРТЫ (в 2 раза меньше) -->
                     <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -100%); z-index: 10; cursor: pointer; display: flex; flex-direction: column; align-items: center;" id="marker-container">
                         
-                        <!-- НАЗВАНИЕ МАСТЕРСКОЙ (постоянно видно, над маркером) -->
-                        <div style="background-color: #fff; color: #000; padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 500; white-space: nowrap; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); margin-bottom: 8px; border: 1px solid #e8e8e8; max-width: 280px; text-align: center; line-height: 1.3;">
-                            Twój Serwisant - Profesjonalny serwis komputerowy
+                        <!-- НАЗВАНИЕ МАСТЕРСКОЙ С ЛОГОТИПОМ (прозрачная заливка) -->
+                        <div style="background-color: rgba(255, 255, 255, 0.95); color: #000; padding: 8px 12px; border-radius: 8px; font-size: 12px; font-weight: 600; white-space: nowrap; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); margin-bottom: 8px; border: 1px solid rgba(232, 232, 232, 0.8); max-width: 280px; text-align: center; line-height: 1.3; display: flex; align-items: center; gap: 8px;">
+                            <!-- Логотип Google (иконка из Google Maps) -->
+                            <img src="https://maps.gstatic.com/mapfiles/place_api/icons/v2/pin-sv.svg" alt="Logo" style="width: 20px; height: 20px; flex-shrink: 0;">
+                            <span>Twój Serwisant - Profesjonalny serwis komputerowy</span>
                         </div>
                         
-                        <!-- МАРКЕР (стандартный Google размер и форма - вертикально симметричный) -->
-                        <div style="width: 48px; height: 56px; background-color: #ea4335; border-radius: 50% 50% 50% 0%; transform: rotate(-45deg); border: 3px solid #fff; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25), inset 0 -2px 4px rgba(0, 0, 0, 0.15); display: flex; align-items: center; justify-content: center; position: relative;" id="marker">
+                        <!-- МАРКЕР (в 2 раза меньше = 24px вместо 48px) -->
+                        <div style="width: 24px; height: 28px; background-color: #ea4335; border-radius: 50% 50% 50% 0%; transform: rotate(-45deg); border: 1.5px solid #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25), inset 0 -1px 2px rgba(0, 0, 0, 0.15); display: flex; align-items: center; justify-content: center; position: relative;" id="marker">
                             <!-- Белая точка в центре -->
-                            <div style="width: 14px; height: 14px; background-color: #fff; border-radius: 50%; transform: rotate(45deg); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);"></div>
+                            <div style="width: 7px; height: 7px; background-color: #fff; border-radius: 50%; transform: rotate(45deg); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);"></div>
                         </div>
+                        
+                        <!-- КОНТЕКСТНАЯ ПОДСКАЗКА С АДРЕСОМ (при наведении на маркер) -->
+                        <div id="marker-tooltip" style="position: absolute; bottom: 120%; left: 50%; transform: translateX(-50%); background-color: #333; color: #fff; padding: 10px 14px; border-radius: 8px; font-size: 12px; z-index: 20; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; display: none; white-space: normal; width: 200px; text-align: center; line-height: 1.4; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);">
+                            <div style="font-weight: 600; margin-bottom: 4px;">Twój Serwisant</div>
+                            <div style="font-size: 11px; color: #fff;">ul. Henryka Pobożnego 8/1A</div>
+                            <div style="font-size: 11px; color: #fff;">50-241 Wrocław</div>
+                        </div>
+                        
+                        <!-- Стрелка подсказки -->
+                        <div id="marker-arrow" style="position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 8px solid #333; z-index: 20; opacity: 0; transition: opacity 0.2s ease; pointer-events: none;"></div>
                         
                     </div>
                     
@@ -625,15 +637,15 @@ fill="#000000" /> </svg></a></li><!-- /new soclinks --> </ul> </div> </div> </di
     
 </div>
 
-<!-- JAVASCRIPT ДЛЯ ПОДСКАЗКИ И ПОДСВЕТКИ АДРЕСА -->
+<!-- JAVASCRIPT ДЛЯ ПОДСКАЗОК И АДРЕСА -->
 <script>
 (function() {
     const mapContainer = document.getElementById('map-container');
     const mapTooltip = document.getElementById('map-tooltip');
     const marker = document.getElementById('marker');
-    const markerContainer = document.getElementById('marker-container');
+    const markerTooltip = document.getElementById('marker-tooltip');
+    const markerArrow = document.getElementById('marker-arrow');
     const addressText = document.getElementById('address-text');
-    const addressSection = document.getElementById('address-section');
     
     // Когда мышь входит в контейнер карты
     mapContainer.addEventListener('mouseenter', function() {
@@ -645,10 +657,15 @@ fill="#000000" /> </svg></a></li><!-- /new soclinks --> </ul> </div> </div> </di
     mapContainer.addEventListener('mouseleave', function() {
         mapTooltip.style.display = 'none';
         mapTooltip.style.opacity = '0';
+        markerTooltip.style.display = 'none';
+        markerTooltip.style.opacity = '0';
+        markerArrow.style.opacity = '0';
         // Убрать подсветку адреса
         addressText.style.backgroundColor = 'transparent';
         addressText.style.padding = '0';
         addressText.style.borderRadius = '0';
+        addressText.style.color = '#333';
+        addressText.style.fontWeight = '400';
     });
     
     // Когда мышь входит на маркер
@@ -656,6 +673,13 @@ fill="#000000" /> </svg></a></li><!-- /new soclinks --> </ul> </div> </div> </di
         e.stopPropagation();
         mapTooltip.style.display = 'none';
         mapTooltip.style.opacity = '0';
+        // Показать контекстную подсказку с адресом
+        markerTooltip.style.display = 'block';
+        markerArrow.style.display = 'block';
+        setTimeout(() => {
+            markerTooltip.style.opacity = '1';
+            markerArrow.style.opacity = '1';
+        }, 10);
         // Подсветить адрес
         addressText.style.backgroundColor = '#ffeaea';
         addressText.style.padding = '8px 12px';
@@ -667,6 +691,12 @@ fill="#000000" /> </svg></a></li><!-- /new soclinks --> </ul> </div> </div> </di
     // Когда мышь покидает маркер
     marker.addEventListener('mouseleave', function(e) {
         e.stopPropagation();
+        markerTooltip.style.opacity = '0';
+        markerArrow.style.opacity = '0';
+        setTimeout(() => {
+            markerTooltip.style.display = 'none';
+            markerArrow.style.display = 'none';
+        }, 200);
         // Убрать подсветку адреса
         addressText.style.backgroundColor = 'transparent';
         addressText.style.padding = '0';
