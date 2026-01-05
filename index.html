@@ -546,31 +546,31 @@ fill="#000000" /> </svg></a></li><!-- /new soclinks --> </ul> </div> </div> </di
                rel="noopener noreferrer"
                style="text-decoration: none; display: block; cursor: pointer; position: relative;">
                 
-                <div style="width: 100%; position: relative; height: 450px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);">
+                <div style="width: 100%; position: relative; height: 450px; border-radius: 12px; overflow: visible; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);" id="map-container">
                     
                     <!-- GOOGLE MAPS IFRAME -->
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2446.68!2d17.03938604256041!3d51.120663052359866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f14!3m3!1m2!1s0x470fe9b50e75b4ff3A0xe83c24387105acf4!2sTw%C3%B3j%20Serwisant%20-%20Profesjonalny%20serwis%20komputerowy!5e0!3m2!1spl!2spl!4v1735380000000" 
                         width="100%" 
                         height="100%" 
-                        style="border: 0; position: absolute; top: 0; left: 0; pointer-events: none;" 
+                        style="border: 0; position: absolute; top: 0; left: 0; pointer-events: none; border-radius: 12px;" 
                         allowfullscreen="" 
                         loading="lazy" 
                         referrerpolicy="no-referrer-when-downgrade" 
                         title="Twój Serwisant - Wrocław">
                     </iframe>
                     
-                    <!-- МАРКЕР В ЦЕНТРЕ КАРТЫ (Google Red стиль) -->
-                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -100%); z-index: 10; cursor: pointer; transition: transform 0.2s ease;">
+                    <!-- МАРКЕР В ЦЕНТРЕ КАРТЫ (уменьшен на 30%, уже) -->
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -100%); z-index: 10; cursor: pointer;" id="marker-container">
                         
-                        <!-- Маркер Google Style (точная копия Google) -->
-                        <div style="width: 48px; height: 48px; background-color: #ea4335; border-radius: 50% 50% 50% 0%; transform: rotate(-45deg); border: 3px solid #fff; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25), inset 0 -2px 4px rgba(0, 0, 0, 0.15); display: flex; align-items: center; justify-content: center; position: relative;">
+                        <!-- Маркер Google Style (уменьшен и уже) -->
+                        <div style="width: 33.6px; height: 40px; background-color: #ea4335; border-radius: 50% 50% 50% 0%; transform: rotate(-45deg); border: 2px solid #fff; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25), inset 0 -2px 4px rgba(0, 0, 0, 0.15); display: flex; align-items: center; justify-content: center; position: relative;" id="marker">
                             <!-- Белая точка в центре -->
-                            <div style="width: 14px; height: 14px; background-color: #fff; border-radius: 50%; transform: rotate(45deg); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);"></div>
+                            <div style="width: 10px; height: 10px; background-color: #fff; border-radius: 50%; transform: rotate(45deg); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);"></div>
                         </div>
                         
-                        <!-- ИНФОРМАЦИОННОЕ ОКНО (появляется при наведении на маркер) -->
-                        <div class="info-window" style="position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); background-color: #fff; color: #333; padding: 12px 14px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 20; width: 240px; text-align: left; border: 1px solid #e0e0e0; margin-bottom: 10px;">
+                        <!-- ИНФОРМАЦИОННОЕ ОКНО (при наведении на маркер) -->
+                        <div id="info-window" style="position: absolute; bottom: 120%; left: 50%; transform: translateX(-50%); background-color: #fff; color: #333; padding: 12px 14px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 20; width: 240px; text-align: left; border: 1px solid #e0e0e0; margin-bottom: 10px; display: none;">
                             <!-- Название места (Google синий) -->
                             <div style="font-weight: 600; font-size: 14px; margin-bottom: 6px; color: #1a73e8;">
                                 Twój Serwisant
@@ -580,50 +580,16 @@ fill="#000000" /> </svg></a></li><!-- /new soclinks --> </ul> </div> </div> </di
                                 ul. Henryka Pobożnego 8/1A<br>
                                 50-241 Wrocław, Polska
                             </div>
+                            <!-- Белый треугольник (шпиль) -->
+                            <div style="position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 8px solid #fff;"></div>
                         </div>
-                        
-                        <!-- Белый треугольник (шпиль окна) -->
-                        <div style="position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 6px solid #fff; z-index: 20; opacity: 0; transition: opacity 0.2s ease; pointer-events: none;" class="info-arrow"></div>
                         
                     </div>
                     
-                    <!-- ОВЕРЛЕЙ ДЛЯ ОБРАБОТКИ СОБЫТИЙ -->
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 5; cursor: pointer;" 
-                         onmouseover="
-                            const mapOverlay = this;
-                            const mapContainer = mapOverlay.closest('div').parentElement;
-                            const markerDiv = mapContainer.querySelector('[style*=\"top: 50%\"]');
-                            const infoWindow = markerDiv.querySelector('.info-window');
-                            const infoArrow = markerDiv.querySelector('.info-arrow');
-                            
-                            // При наведении ТОЛЬКО на маркер - показать окно с адресом
-                            if (event.target.closest('[style*=\"top: 50%\"]')) {
-                                infoWindow.style.opacity = '1';
-                                infoArrow.style.opacity = '1';
-                            } else {
-                                // При наведении на остальную карту - показать подсказку
-                                if (!mapContainer.querySelector('.tooltip')) {
-                                    const tooltip = document.createElement('div');
-                                    tooltip.className = 'tooltip';
-                                    tooltip.style.cssText = 'position: absolute; top: 15px; left: 50%; transform: translateX(-50%); background-color: #333; color: #fff; padding: 8px 12px; border-radius: 6px; font-size: 12px; white-space: nowrap; z-index: 20; font-weight: 500;';
-                                    tooltip.textContent = 'Kliknij aby otworzyć Mapy Google';
-                                    mapContainer.appendChild(tooltip);
-                                }
-                                mapContainer.querySelector('.tooltip').style.opacity = '1';
-                            }
-                         "
-                         onmouseout="
-                            const mapOverlay = this;
-                            const mapContainer = mapOverlay.closest('div').parentElement;
-                            const markerDiv = mapContainer.querySelector('[style*=\"top: 50%\"]');
-                            const infoWindow = markerDiv.querySelector('.info-window');
-                            const infoArrow = markerDiv.querySelector('.info-arrow');
-                            const tooltip = mapContainer.querySelector('.tooltip');
-                            
-                            infoWindow.style.opacity = '0';
-                            infoArrow.style.opacity = '0';
-                            if (tooltip) tooltip.style.opacity = '0';
-                         "></div>
+                    <!-- ПОДСКАЗКА НА КАРТЕ (при наведении не на маркер) -->
+                    <div id="map-tooltip" style="position: absolute; top: 15px; left: 50%; transform: translateX(-50%); background-color: #333; color: #fff; padding: 8px 12px; border-radius: 6px; font-size: 12px; white-space: nowrap; z-index: 15; font-weight: 500; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; display: none;">
+                        Kliknij aby otworzyć Mapy Google
+                    </div>
                     
                 </div>
             </a>
@@ -668,7 +634,80 @@ fill="#000000" /> </svg></a></li><!-- /new soclinks --> </ul> </div> </div> </di
     </div>
     
 </div>
-<!-- ===== КОНЕЦ КАРТЫ ===== -->
+
+<!-- JAVASCRIPT ДЛЯ ПОДСКАЗОК И МАРКЕРА -->
+<script>
+(function() {
+    const mapContainer = document.getElementById('map-container');
+    const markerContainer = document.getElementById('marker-container');
+    const infoWindow = document.getElementById('info-window');
+    const mapTooltip = document.getElementById('map-tooltip');
+    const marker = document.getElementById('marker');
+    
+    // Когда мышь входит в контейнер карты
+    mapContainer.addEventListener('mouseenter', function() {
+        mapTooltip.style.display = 'block';
+        mapTooltip.style.opacity = '1';
+    });
+    
+    // Когда мышь покидает контейнер карты
+    mapContainer.addEventListener('mouseleave', function() {
+        infoWindow.style.display = 'none';
+        infoWindow.style.opacity = '0';
+        mapTooltip.style.display = 'none';
+        mapTooltip.style.opacity = '0';
+    });
+    
+    // Когда мышь входит на маркер
+    marker.addEventListener('mouseenter', function(e) {
+        e.stopPropagation();
+        mapTooltip.style.display = 'none';
+        mapTooltip.style.opacity = '0';
+        infoWindow.style.display = 'block';
+        setTimeout(() => {
+            infoWindow.style.opacity = '1';
+        }, 10);
+    });
+    
+    // Когда мышь покидает маркер
+    marker.addEventListener('mouseleave', function(e) {
+        e.stopPropagation();
+        infoWindow.style.opacity = '0';
+        setTimeout(() => {
+            infoWindow.style.display = 'none';
+        }, 200);
+        // Показать подсказку карты снова
+        mapTooltip.style.display = 'block';
+        mapTooltip.style.opacity = '1';
+    });
+    
+    // Когда мышь входит на контейнер маркера
+    markerContainer.addEventListener('mouseenter', function(e) {
+        e.stopPropagation();
+    });
+    
+    // Предотвращение пузырения событий
+    mapContainer.addEventListener('mousemove', function(e) {
+        const rect = mapContainer.getBoundingClientRect();
+        const markerRect = marker.getBoundingClientRect();
+        
+        // Проверяем если мышь над маркером
+        const isOverMarker = e.clientX >= markerRect.left && 
+                            e.clientX <= markerRect.right && 
+                            e.clientY >= markerRect.top && 
+                            e.clientY <= markerRect.bottom;
+        
+        if (!isOverMarker && infoWindow.style.opacity === '1') {
+            infoWindow.style.opacity = '0';
+            setTimeout(() => {
+                infoWindow.style.display = 'none';
+            }, 200);
+            mapTooltip.style.display = 'block';
+            mapTooltip.style.opacity = '1';
+        }
+    });
+})();
+</script>
 
 
 
