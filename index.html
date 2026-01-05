@@ -608,38 +608,78 @@ window.tildastatcookie='no';setTimeout(function(){(function(d,w,k,o,g) {var n=d.
     Znajdź nas na Google Map
   </a>
   </div>
+<script>
+function handleFormSubmit(event) {
+  event.preventDefault();
+  
+  const form = document.getElementById('form1613364601');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalText = submitBtn.textContent;
+  
+  // Валидация
+  const name = form.querySelector('input[name="Name"]').value.trim();
+  const email = form.querySelector('input[name="Email"]').value.trim();
+  const phone = form.querySelector('input[name="Phone"]').value.trim();
+  const textarea = form.querySelector('textarea[name="Textarea"]').value.trim();
+  
+  if (!name || !email || !phone || !textarea) {
+    alert('Proszę wypełnić wszystkie pola');
+    return false;
+  }
+  
+  // Валидация email
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert('Proszę wpisać prawidłowy adres email');
+    return false;
+  }
+  
+  // Показываем "Отправка..."
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Wysyłanie...';
+  
+  // Отправляем
+  fetch(form.action, {
+    method: form.method,
+    body: new FormData(form),
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+  .then(response => {
+    if (response.ok) {
+      // Успех
+      const successBox = form.querySelector('.js-successbox');
+      if (successBox) {
+        successBox.style.display = 'block';
+      }
+      form.reset();
+      
+      // Прячем форму через 3 сек
+      setTimeout(() => {
+        form.style.opacity = '0.5';
+      }, 3000);
+      
+      return false;
+    } else {
+      alert('Błąd przy wysyłaniu. Spróbuj ponownie.');
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('Błąd przy wysyłaniu formularza. Spróbuj ponownie.');
+  })
+  .finally(() => {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalText;
+  });
+  
+  return false;
+}
+</script>
 
 
  </body> </html>
 
-  
+ 
 
-<section id="contact" class="section">
-  <h2>Kontakt</h2>
-  <form id="contactForm" class="contact-form" action="https://formspree.io/f/mvgdredp" method="POST" onsubmit="return handleSubmit(event)">
-   <div class="form-group">
-      <input type="text" name="name" placeholder="Imię i nazwisko" required>
-      <span class="tooltip">Wpisz swoje imię i nazwisko</span>
-    </div>
-    <div class="form-group">
-      <input type="email" name="_replyto" placeholder="Twój e-mail" required>
-      <span class="tooltip">Wpisz swój adres e-mail</span>
-    </div>
-    <div class="form-group">
-      <input type="tel" name="phone" placeholder="Numer telefonu">
-      <span class="tooltip">Wpisz swój numer telefonu</span>
-    </div>
-    <div class="form-group">
-      <textarea name="message" placeholder="Twoja wiadomość" rows="5" required></textarea>
-      <span class="tooltip">Napisz swoją wiadomość</span>
-    </div>
-    <button type="submit">Wyślij</button>
-  </form>
-
-  <div id="thankModal" class="modal" style="display:none;">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <p>Dziękujemy za wiadomość!</p>
-    </div>
-  </div>
-</section>
