@@ -531,7 +531,7 @@ fill="#000000" /> </svg></a></li><!-- /new soclinks --> </ul> </div> </div> </di
 </section>
                                    
  
-<!-- ===== GOOGLE MAPS С МАРКЕРОМ GOOGLE STYLE ===== -->
+<!-- ===== GOOGLE MAPS С ПОСТОЯННЫМ НАЗВАНИЕМ И ПОДСВЕТКОЙ АДРЕСА ===== -->
 <div id="rec1614067812" style="padding-top: 0px; padding-bottom: 45px; background-color: #f0f0f0;">
     
     <!-- Основной контейнер -->
@@ -557,36 +557,26 @@ fill="#000000" /> </svg></a></li><!-- /new soclinks --> </ul> </div> </div> </di
                         allowfullscreen="" 
                         loading="lazy" 
                         referrerpolicy="no-referrer-when-downgrade" 
-                        title="Twój Serwisant - Wrocław">
+                        title="Twój Serwisant - Profesjonalny serwis komputerowy">
                     </iframe>
                     
-                    <!-- МАРКЕР В ЦЕНТРЕ КАРТЫ (уменьшен на 30%, уже) -->
-                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -100%); z-index: 10; cursor: pointer;" id="marker-container">
+                    <!-- МАРКЕР В ЦЕНТРЕ КАРТЫ (стандартный размер Google) -->
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -100%); z-index: 10; cursor: pointer; display: flex; flex-direction: column; align-items: center;" id="marker-container">
                         
-                        <!-- Маркер Google Style (уменьшен и уже) -->
-                        <div style="width: 33.6px; height: 40px; background-color: #ea4335; border-radius: 50% 50% 50% 0%; transform: rotate(-45deg); border: 2px solid #fff; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25), inset 0 -2px 4px rgba(0, 0, 0, 0.15); display: flex; align-items: center; justify-content: center; position: relative;" id="marker">
-                            <!-- Белая точка в центре -->
-                            <div style="width: 10px; height: 10px; background-color: #fff; border-radius: 50%; transform: rotate(45deg); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);"></div>
+                        <!-- НАЗВАНИЕ МАСТЕРСКОЙ (постоянно видно, над маркером) -->
+                        <div style="background-color: #fff; color: #000; padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 500; white-space: nowrap; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); margin-bottom: 8px; border: 1px solid #e8e8e8; max-width: 280px; text-align: center; line-height: 1.3;">
+                            Twój Serwisant - Profesjonalny serwis komputerowy
                         </div>
                         
-                        <!-- ИНФОРМАЦИОННОЕ ОКНО (при наведении на маркер) -->
-                        <div id="info-window" style="position: absolute; bottom: 120%; left: 50%; transform: translateX(-50%); background-color: #fff; color: #333; padding: 12px 14px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 20; width: 240px; text-align: left; border: 1px solid #e0e0e0; margin-bottom: 10px; display: none;">
-                            <!-- Название места (Google синий) -->
-                            <div style="font-weight: 600; font-size: 14px; margin-bottom: 6px; color: #1a73e8;">
-                                Twój Serwisant
-                            </div>
-                            <!-- Адрес -->
-                            <div style="font-size: 12px; margin-bottom: 0; line-height: 1.4; color: #666;">
-                                ul. Henryka Pobożnego 8/1A<br>
-                                50-241 Wrocław, Polska
-                            </div>
-                            <!-- Белый треугольник (шпиль) -->
-                            <div style="position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 8px solid #fff;"></div>
+                        <!-- МАРКЕР (стандартный Google размер и форма - вертикально симметричный) -->
+                        <div style="width: 48px; height: 56px; background-color: #ea4335; border-radius: 50% 50% 50% 0%; transform: rotate(-45deg); border: 3px solid #fff; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25), inset 0 -2px 4px rgba(0, 0, 0, 0.15); display: flex; align-items: center; justify-content: center; position: relative;" id="marker">
+                            <!-- Белая точка в центре -->
+                            <div style="width: 14px; height: 14px; background-color: #fff; border-radius: 50%; transform: rotate(45deg); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);"></div>
                         </div>
                         
                     </div>
                     
-                    <!-- ПОДСКАЗКА НА КАРТЕ (при наведении не на маркер) -->
+                    <!-- ПОДСКАЗКА НА КАРТЕ (при наведении на остальную карту) -->
                     <div id="map-tooltip" style="position: absolute; top: 15px; left: 50%; transform: translateX(-50%); background-color: #333; color: #fff; padding: 8px 12px; border-radius: 6px; font-size: 12px; white-space: nowrap; z-index: 15; font-weight: 500; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; display: none;">
                         Kliknij aby otworzyć Mapy Google
                     </div>
@@ -596,10 +586,10 @@ fill="#000000" /> </svg></a></li><!-- /new soclinks --> </ul> </div> </div> </di
         </div>
         
         <!-- Информация о локации -->
-        <div style="margin-top: 20px; text-align: center;">
-            <p style="font-size: 16px; color: #333; margin: 0; line-height: 1.6;">
+        <div style="margin-top: 20px; text-align: center;" id="address-section">
+            <p style="font-size: 16px; color: #333; margin: 0; line-height: 1.6; transition: all 0.3s ease;">
                 <strong>Odwiedź nas:</strong><br>
-                ul. Henryka Pobożnego 8/1A, 50-241 Wrocław<br>
+                <span id="address-text" style="display: block; color: #333; transition: all 0.3s ease;">ul. Henryka Pobożnego 8/1A, 50-241 Wrocław</span><br>
                 <a href="tel:48455510637" style="color: #0066cc; text-decoration: none; font-weight: 600;">☎ +48 455 510 637</a>
             </p>
         </div>
@@ -635,14 +625,15 @@ fill="#000000" /> </svg></a></li><!-- /new soclinks --> </ul> </div> </div> </di
     
 </div>
 
-<!-- JAVASCRIPT ДЛЯ ПОДСКАЗОК И МАРКЕРА -->
+<!-- JAVASCRIPT ДЛЯ ПОДСКАЗКИ И ПОДСВЕТКИ АДРЕСА -->
 <script>
 (function() {
     const mapContainer = document.getElementById('map-container');
-    const markerContainer = document.getElementById('marker-container');
-    const infoWindow = document.getElementById('info-window');
     const mapTooltip = document.getElementById('map-tooltip');
     const marker = document.getElementById('marker');
+    const markerContainer = document.getElementById('marker-container');
+    const addressText = document.getElementById('address-text');
+    const addressSection = document.getElementById('address-section');
     
     // Когда мышь входит в контейнер карты
     mapContainer.addEventListener('mouseenter', function() {
@@ -652,10 +643,12 @@ fill="#000000" /> </svg></a></li><!-- /new soclinks --> </ul> </div> </div> </di
     
     // Когда мышь покидает контейнер карты
     mapContainer.addEventListener('mouseleave', function() {
-        infoWindow.style.display = 'none';
-        infoWindow.style.opacity = '0';
         mapTooltip.style.display = 'none';
         mapTooltip.style.opacity = '0';
+        // Убрать подсветку адреса
+        addressText.style.backgroundColor = 'transparent';
+        addressText.style.padding = '0';
+        addressText.style.borderRadius = '0';
     });
     
     // Когда мышь входит на маркер
@@ -663,52 +656,29 @@ fill="#000000" /> </svg></a></li><!-- /new soclinks --> </ul> </div> </div> </di
         e.stopPropagation();
         mapTooltip.style.display = 'none';
         mapTooltip.style.opacity = '0';
-        infoWindow.style.display = 'block';
-        setTimeout(() => {
-            infoWindow.style.opacity = '1';
-        }, 10);
+        // Подсветить адрес
+        addressText.style.backgroundColor = '#ffeaea';
+        addressText.style.padding = '8px 12px';
+        addressText.style.borderRadius = '6px';
+        addressText.style.color = '#ea4335';
+        addressText.style.fontWeight = '600';
     });
     
     // Когда мышь покидает маркер
     marker.addEventListener('mouseleave', function(e) {
         e.stopPropagation();
-        infoWindow.style.opacity = '0';
-        setTimeout(() => {
-            infoWindow.style.display = 'none';
-        }, 200);
+        // Убрать подсветку адреса
+        addressText.style.backgroundColor = 'transparent';
+        addressText.style.padding = '0';
+        addressText.style.borderRadius = '0';
+        addressText.style.color = '#333';
+        addressText.style.fontWeight = '400';
         // Показать подсказку карты снова
         mapTooltip.style.display = 'block';
         mapTooltip.style.opacity = '1';
     });
-    
-    // Когда мышь входит на контейнер маркера
-    markerContainer.addEventListener('mouseenter', function(e) {
-        e.stopPropagation();
-    });
-    
-    // Предотвращение пузырения событий
-    mapContainer.addEventListener('mousemove', function(e) {
-        const rect = mapContainer.getBoundingClientRect();
-        const markerRect = marker.getBoundingClientRect();
-        
-        // Проверяем если мышь над маркером
-        const isOverMarker = e.clientX >= markerRect.left && 
-                            e.clientX <= markerRect.right && 
-                            e.clientY >= markerRect.top && 
-                            e.clientY <= markerRect.bottom;
-        
-        if (!isOverMarker && infoWindow.style.opacity === '1') {
-            infoWindow.style.opacity = '0';
-            setTimeout(() => {
-                infoWindow.style.display = 'none';
-            }, 200);
-            mapTooltip.style.display = 'block';
-            mapTooltip.style.opacity = '1';
-        }
-    });
 })();
 </script>
-
 
 
  <br>
