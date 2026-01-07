@@ -875,7 +875,7 @@ function handleFormSubmit(event) {
 }
 </script>
 
- <!-- ===== GOOGLE MAPS — СТРУКТУРИЗОВАННЫЙ КОД ===== -->
+<!-- ===== GOOGLE MAPS — СТРУКТУРИРОВАННЫЙ ВЫВОД ===== -->
 <section class="map-section" aria-labelledby="map-heading">
     
     <!-- Заголовок секции -->
@@ -884,79 +884,43 @@ function handleFormSubmit(event) {
             Nasza lokalizacja
         </h2>
         <p class="map-subtitle">
-            Znajdź nas na mapie Google i zaplanuj wizytę
+            Znajdź nas na mapie Google
         </p>
     </header>
     
-    <!-- Основной контейнер карты -->
-    <div class="map-container-wrapper">
+    <!-- Контейнер карты -->
+    <div class="map-container">
         
-        <!-- Ссылка на полную карту Google Maps -->
-        <a href="https://www.google.com/maps/place/51.120663052359866,17.03938604256041/@51.120663052359866,17.03938604256041,15z?entry=ttu&g_ep=EhRSZWN0YW5nbGUgTWFwKHQpEAEo&hl=pl" 
+        <!-- Ссылка на полную карту -->
+        <a href="https://www.google.com/maps/place/Tw%C3%B3j+Serwisant+Wroc%C5%82aw" 
            class="map-link" 
            target="_blank" 
            rel="noopener noreferrer"
-           aria-label="Otwórz pełną mapę Google Maps - Twój Serwisant, Wrocław">
+           aria-label="Otwórz pełną mapę Google Maps">
             
-            <figure class="map-figure" role="figure" aria-describedby="map-caption">
+            <!-- Figure с iframe (семантика) -->
+            <figure class="map-figure" role="figure">
                 
-                <!-- Контейнер карты -->
-                <div class="map-wrapper" id="map-container" role="img" aria-label="Mapa Google z markerem Twój Serwisant">
+                <!-- Контейнер для адаптивности -->
+                <div class="map-wrapper">
                     
-                    <!-- IFRAME Google Maps -->
+                    <!-- ТВОЙ IFRAME (БЕЗ ИЗМЕНЕНИЙ) -->
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2446.68!2d17.03938604256041!3d51.120663052359866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f14!3m3!1m2!1s0x470fe9b50e75b4ff3A0xe83c24387105acf4!2sTw%C3%B3j%20Serwisant%20-%20Profesjonalny%20serwis%20komputerowy!5e0!3m2!1spl!2spl!4v1735380000000" 
-                        width="100%" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20040.14124835007!2d17.05185807824705!3d51.108134408059826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fe9b50e75b4ff%3A0xe83c24387105acf4!2sSerwis%20komputerowy%20Tw%C3%B3j%20Serwisant!5e0!3m2!1spl!2spl!4v1767609783994!5m2!1spl!2spl"
+                        width="600" 
                         height="450" 
-                        loading="lazy" 
-                        style="border: 0; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);"
+                        style="border:0;" 
                         allowfullscreen="" 
-                        referrerpolicy="no-referrer-when-downgrade" 
-                        title="Mapa Google Maps - Twój Serwisant, ul. Henryka Pobożnego 8/1A, Wrocław">
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Mapa Google Maps - Twój Serwisant, Wrocław">
                     </iframe>
-                    
-                    <!-- Маркер и название -->
-                    <div class="marker-overlay" role="presentation" aria-hidden="true">
-                        
-                        <!-- Название с логотипом -->
-                        <div class="marker-label" role="img" aria-label="Twój Serwisant - Profesjonalny serwis komputerowy">
-                            <img src="images/logo.png" 
-                                 alt="" 
-                                 width="20" 
-                                 height="20" 
-                                 loading="lazy"
-                                 class="marker-logo">
-                            <span class="marker-text">Twój Serwisant - Profesjonalny serwis komputerowy</span>
-                        </div>
-                        
-                        <!-- Маркер Google -->
-                        <div class="marker-pin" role="presentation" id="marker-pin">
-                            <div class="marker-dot"></div>
-                        </div>
-                        
-                        <!-- Tooltip при наведении на маркер -->
-                        <div class="marker-tooltip" id="marker-tooltip" role="tooltip" aria-live="polite">
-                            <div class="tooltip-content">
-                                <div class="tooltip-address">
-                                    ul. Henryka Pobożnego 8/1A<br>
-                                    50-241 Wrocław
-                                </div>
-                            </div>
-                            <div class="tooltip-arrow" id="marker-arrow" aria-hidden="true"></div>
-                        </div>
-                        
-                    </div>
-                    
-                    <!-- Tooltip при наведении на карту -->
-                    <div class="map-tooltip" id="map-tooltip" role="tooltip" aria-live="polite">
-                        Kliknij aby otworzyć Mapy Google
-                    </div>
                     
                 </div>
                 
                 <!-- Подпись к карте -->
-                <figcaption id="map-caption" class="map-caption">
-                    Twój Serwisant — Profesjonalny serwis komputerowy, Wrocław
+                <figcaption class="map-caption">
+                    Twój Serwisant — Serwis komputerowy w Wrocławiu
                 </figcaption>
                 
             </figure>
@@ -966,39 +930,48 @@ function handleFormSubmit(event) {
     </div>
     
     <!-- Контактная информация -->
-    <div class="map-info" role="complementary">
+    <div class="map-info">
         
         <!-- Адрес -->
-        <address class="contact-address" itemscope itemtype="https://schema.org/LocalBusiness">
-            <span itemprop="name"><strong>Odwiedź nas:</strong></span><br>
-            <span itemprop="streetAddress">ul. Henryka Pobożnego 8/1A</span>,<br>
-            <span itemprop="postalCode">50-241</span> 
-            <span itemprop="addressLocality">Wrocław</span>,<br>
-            <span itemprop="addressCountry">Polska</span>
+        <address class="contact-block" itemscope itemtype="https://schema.org/LocalBusiness">
+            <h3 class="contact-title">Odwiedź nas:</h3>
+            <p itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <span itemprop="streetAddress">ul. Henryka Pobożnego 8/1A</span><br>
+                <span itemprop="postalCode">50-241</span> 
+                <span itemprop="addressLocality">Wrocław</span>
+            </p>
         </address>
         
         <!-- Телефон -->
-        <div class="contact-phone">
-            <a href="tel:+48455510637" itemprop="telephone" class="phone-link">
-                ☎ +48 455 510 637
-            </a>
+        <div class="contact-block">
+            <h3 class="contact-title">Telefon:</h3>
+            <p>
+                <a href="tel:+48455510637" class="phone-link">
+                    ☎ +48 455 510 637
+                </a>
+            </p>
         </div>
         
         <!-- Координаты -->
-        <div class="coordinates" itemprop="geo" itemscope itemtype="https://schema.org/GeoCoordinates">
-            <meta itemprop="latitude" content="51.120663">
-            <meta itemprop="longitude" content="17.039386">
-            📍 Współrzędne: <data value="51.1207">51.1207°N</data>, <data value="17.0394">17.0394°E</data>
+        <div class="contact-block" itemprop="geo" itemscope itemtype="https://schema.org/GeoCoordinates">
+            <meta itemprop="latitude" content="51.1087">
+            <meta itemprop="longitude" content="17.0519">
+            <h3 class="contact-title">Współrzędne GPS:</h3>
+            <p class="coordinates">
+                📍 <data value="51.1087">51.1087°N</data>, 
+                <data value="17.0519">17.0519°E</data>
+            </p>
         </div>
         
     </div>
     
     <!-- Кнопка маршрута -->
     <div class="map-actions">
-        <a href="https://www.google.com/maps/dir/?api=1&destination=51.120663052359866,17.03938604256041&travelmode=driving&hl=pl" 
+        <a href="https://www.google.com/maps/dir/?api=1&destination=51.1087,17.0519&travelmode=driving&hl=pl" 
            class="btn-map-route" 
            target="_blank" 
-           rel="noopener noreferrer">
+           rel="noopener noreferrer"
+           aria-label="Wyznacz trasę do Twój Serwisant">
             <span class="btn-icon">📍</span>
             <span class="btn-text">Wyznacz trasę</span>
         </a>
@@ -1008,8 +981,16 @@ function handleFormSubmit(event) {
     <aside class="opening-hours" itemscope itemtype="https://schema.org/OpeningHoursSpecification">
         <h3 class="hours-title">Godziny pracy:</h3>
         <ul class="hours-list">
-            <li itemprop="dayOfWeek" content="Monday">Poniedziałek - Piątek: 9:00 - 18:00</li>
-            <li itemprop="dayOfWeek" content="Saturday">Sobota: 10:00 - 14:00</li>
+            <li>
+                <span class="day">Poniedziałek - Piątek:</span> 
+                <time itemprop="opens" content="09:00">9:00</time> - 
+                <time itemprop="closes" content="18:00">18:00</time>
+            </li>
+            <li>
+                <span class="day">Sobota:</span> 
+                <time itemprop="opens" content="10:00">10:00</time> - 
+                <time itemprop="closes" content="14:00">14:00</time>
+            </li>
         </ul>
     </aside>
     
@@ -1017,22 +998,24 @@ function handleFormSubmit(event) {
 
 <!-- ===== CSS СТИЛИ ===== -->
 <style>
+/* Основные стили секции */
 .map-section {
-    padding: 0 0 45px;
+    padding: 40px 15px;
     background-color: #f0f0f0;
     max-width: 1200px;
     margin: 0 auto;
 }
 
+/* Заголовок */
 .map-header {
     text-align: center;
-    padding: 24px 15px 0;
+    margin-bottom: 30px;
 }
 
 .map-title {
     font-size: 28px;
     font-weight: 700;
-    margin: 0 0 8px 0;
+    margin: 0 0 12px 0;
     color: #333;
 }
 
@@ -1042,213 +1025,253 @@ function handleFormSubmit(event) {
     margin: 0;
 }
 
-.map-container-wrapper {
-    margin: 24px auto 20px;
-    max-width: 450px;
+/* Контейнер карты */
+.map-container {
+    margin-bottom: 30px;
 }
 
 .map-link {
     display: block;
     text-decoration: none;
     color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.map-link:hover {
+    transform: translateY(-2px);
 }
 
 .map-figure {
     margin: 0;
-    position: relative;
 }
 
 .map-wrapper {
     position: relative;
-    height: 450px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
     border-radius: 12px;
-    overflow: visible;
+    overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-}
-
-.marker-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -100%);
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    pointer-events: none;
-}
-
-.marker-label {
-    background-color: transparent;
-    color: #000;
-    padding: 8px 12px;
-    font-size: 12px;
-    font-weight: 600;
-    white-space: nowrap;
-    box-shadow: none;
-    border: none;
-    max-width: 280px;
-    text-align: center;
-    line-height: 1.3;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    pointer-events: none;
-}
-
-.marker-logo {
-    width: 20px !important;
-    height: 20px !important;
-    flex-shrink: 0;
-    object-fit: contain;
-}
-
-.marker-pin {
-    width: 24px;
-    height: 28px;
-    background-color: #ea4335;
-    border-radius: 50% 50% 50% 0%;
-    transform: rotate(-45deg);
-    border: 1.5px solid #fff;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25), inset 0 -1px 2px rgba(0, 0, 0, 0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    cursor: pointer;
-    pointer-events: auto;
-}
-
-.marker-dot {
-    width: 7px;
-    height: 7px;
-    background-color: #fff;
-    border-radius: 50%;
-    transform: rotate(45deg);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.marker-tooltip {
-    position: absolute;
-    bottom: 120%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333;
-    color: #fff;
-    padding: 10px 14px;
-    border-radius: 8px;
-    font-size: 12px;
-    z-index: 20;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    pointer-events: none;
-    white-space: normal;
-    width: 200px;
-    text-align: center;
-    line-height: 1.4;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.marker-tooltip[style*="opacity: 1"] {
-    opacity: 1;
-}
-
-.tooltip-content {
-    position: relative;
-}
-
-.tooltip-arrow {
-    position: absolute;
-    bottom: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
+    
+    /* Адаптивность: 4:3 соотношение сторон */
+    padding-bottom: 75%;
     height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 8px solid #333;
-    opacity: 0;
-    transition: opacity 0.2s ease;
 }
 
-.map-tooltip {
-    position: absolute;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333;
-    color: #fff;
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-size: 12px;
-    white-space: nowrap;
-    z-index: 15;
-    font-weight: 500;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    pointer-events: none;
-}
-
-.map-tooltip[style*="opacity: 1"] {
-    opacity: 1;
+.map-wrapper iframe {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 12px;
 }
 
 .map-caption {
-    font-size: 14px;
-    color: #666;
+    font-size: 13px;
+    color: #999;
     margin-top: 12px;
+    text-align: center;
     font-style: italic;
 }
 
+/* Информационный блок */
 .map-info {
-    margin-top: 20px;
-    text-align: center;
-    padding: 20px;
     background: white;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.contact-address {
-    font-style: normal;
-    line-height: 1.6;
-    color: #333;
+.contact-block {
+    margin-bottom: 15px;
 }
 
-.contact-address strong {
-    color: #333;
+.contact-block:last-child {
+    margin-bottom: 0;
+}
+
+.contact-title {
+    font-size: 14px;
     font-weight: 600;
+    color: #333;
+    margin: 0 0 8px 0;
+}
+
+.contact-block p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+}
+
+address {
+    font-style: normal;
 }
 
 .phone-link {
-    color: #0066cc;
+    color: #ea4335;
     text-decoration: none;
     font-weight: 600;
+    transition: color 0.3s ease;
 }
 
 .phone-link:hover {
+    color: #c5221f;
     text-decoration: underline;
 }
 
 .coordinates {
-    margin-top: 15px;
-    font-size: 13px;
-    color: #666;
     font-family: monospace;
+    font-size: 13px;
+    color: #ea4335;
 }
 
 .coordinates data {
     font-weight: 600;
-    color: #ea4335;
 }
 
+/* Кнопка маршрута */
 .map-actions {
-    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .btn-map-route {
     display: inline-flex;
-    align-items
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background-color: #ea4335;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    box-shadow: 0px 8px 24px rgba(234, 67, 53, 0.35);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-map-route:hover {
+    background-color: #c5221f;
+    transform: translateY(-2px);
+    box-shadow: 0px 12px 32px rgba(234, 67, 53, 0.45);
+}
+
+.btn-map-route:active {
+    transform: translateY(0);
+}
+
+.btn-icon {
+    font-size: 18px;
+}
+
+/* Часы работы */
+.opening-hours {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #ea4335;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hours-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 10px 0;
+}
+
+.hours-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.hours-list li {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 6px;
+    line-height: 1.5;
+}
+
+.hours-list li:last-child {
+    margin-bottom: 0;
+}
+
+.day {
+    font-weight: 600;
+    color: #333;
+}
+
+time {
+    color: #ea4335;
+    font-weight: 600;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .map-section {
+        padding: 30px 12px;
+    }
+    
+    .map-title {
+        font-size: 24px;
+    }
+    
+    .map-wrapper {
+        padding-bottom: 75%;
+    }
+    
+    .btn-map-route {
+        width: 100%;
+        max-width: 90%;
+    }
+    
+    .map-info,
+    .opening-hours {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .map-section {
+        padding: 20px 10px;
+    }
+    
+    .map-title {
+        font-size: 20px;
+    }
+    
+    .map-wrapper {
+        padding-bottom: 75%;
+    }
+    
+    .contact-title {
+        font-size: 12px;
+    }
+    
+    .contact-block p {
+        font-size: 12px;
+    }
+    
+    .btn-map-route {
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+}
+</style>
+
 
 
  </body> </html>
