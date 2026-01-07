@@ -544,8 +544,90 @@ fill="#000000" /> </svg></a></li><!-- /new soclinks --> </ul> </div> </div> </di
     Znajdź nas na Google Map
   </a>
   </div>
-
+ 
  <br>
+<!-- ===== SECTION С КНОПКОЙ GOOGLE MAP ===== -->
+<section style="padding: 40px 15px; background-color: #f0f0f0; max-width: 1200px; margin: 0 auto;">
+    
+    <div style="text-align: center; margin-bottom: 30px;">
+        <h2 style="font-size: 28px; font-weight: 700; margin: 0 0 12px 0; color: #333;">
+            Nasza lokalizacja na mapie
+        </h2>
+        <p style="font-size: 16px; color: #666; margin: 0;">
+            Kliknij poniżej aby znaleźć nas na Google Maps
+        </p>
+    </div>
+    
+    <!-- КНОПКА GOOGLE MAP В СТИЛЕ KONTAKT -->
+    <div style="margin: 22px auto; max-width: 410px; text-align: center;">
+        <a class="t-btn t-btnflex t-btnflextype-button t-btnflex-md t-animate google-map-btn" 
+           href="https://www.google.com/maps/place/51.120663052359866,17.03938604256041/@51.120663052359866,17.03938604256041,15z?entry=ttu&g_ep=EhRSZWN0YW5nbGUgTWFwKHQpEAEo&hl=pl" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           data-animate-style="fade-in-right" 
+           data-animate-group="yes" 
+           data-btneffects-second="btneffects-ripple"
+           style="display: inline-block; 
+                   color: #000000; 
+                   background-color: #fae6ac; 
+                   border: 2px solid #000000; 
+                   border-radius: 16px; 
+                   box-shadow: 0px 10px 40px -2px rgba(0, 11, 48, 0.3); 
+                   font-size: 16px; 
+                   padding: 12px 24px; 
+                   text-decoration: none; 
+                   text-transform: capitalize; 
+                   font-weight: 500; 
+                   line-height: 1.4; 
+                   cursor: pointer; 
+                   touch-action: manipulation;
+                   transition: all 0.3s ease-in-out;">
+            📍 Znajdź nas na Google Map
+        </a>
+    </div>
+    
+    <!-- ИНФОРМАЦИЯ О ЛОКАЦИИ -->
+    <div style="margin-top: 30px; text-align: center; background: white; padding: 20px; border-radius: 8px; max-width: 410px; margin-left: auto; margin-right: auto;">
+        <p style="font-size: 16px; color: #333; margin: 0; line-height: 1.6;">
+            <strong>ul. Henryka Pobożnego 8/1A</strong><br>
+            50-241 Wrocław, Polska<br>
+            <strong style="color: #ea4335;">☎ +48 455 510 637</strong>
+        </p>
+    </div>
+    
+</section>
+
+<!-- ===== СТИЛИ ДЛЯ КНОПКИ ===== -->
+<style>
+    .google-map-btn {
+        transition: all 0.3s ease-in-out !important;
+    }
+    
+    .google-map-btn:hover {
+        background-color: #f6d578 !important;
+        color: #ff8562 !important;
+        box-shadow: 0px 10px 40px -2px rgba(0, 11, 48, 0.3) !important;
+        transform: translateY(-2px);
+    }
+    
+    .google-map-btn:focus-visible {
+        outline: 2px solid #000000;
+        outline-offset: 2px;
+    }
+    
+    .google-map-btn:active {
+        transform: translateY(0px);
+    }
+    
+    /* Ripple эффект */
+    .google-map-btn[data-btneffects-second] {
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+    }
+</style>
+
+ 
 <br>
 
 
