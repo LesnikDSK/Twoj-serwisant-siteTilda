@@ -511,11 +511,67 @@ fill="#000000" /> </svg></a></li><!-- /new soclinks --> </ul> </div> </div> </di
     </div>
 
     <!-- Przycisk wysłania -->
-    <div class="t-form__submit">
-      <button class="t-submit t-btnflex t-btnflex_type_submit t-btnflex_md" type="submit" data-btneffects-first="btneffects-light">
+    <!-- ===== КНОПКА "WYŚLIJ" В СТИЛЕ KONTAKT ===== -->
+<div class="t-form__submit" style="margin-top: 20px; text-align: center;">
+    <button class="t-submit t-btnflex t-btnflex_type_submit t-btnflex_md submit-btn-kontakt" 
+            type="submit" 
+            data-btneffects-second="btneffects-ripple"
+            style="display: inline-flex;
+                   align-items: center;
+                   justify-content: center;
+                   padding: 12px 28px;
+                   background-color: #fae6ac;
+                   color: #000000;
+                   border: 2px solid #000000;
+                   border-radius: 24px;
+                   font-size: 16px;
+                   font-weight: 600;
+                   text-decoration: none;
+                   text-transform: uppercase;
+                   box-shadow: 0px 10px 40px -2px rgba(0, 11, 48, 0.3);
+                   cursor: pointer;
+                   touch-action: manipulation;
+                   transition: all 0.3s ease-in-out;
+                   border: none;">
         <span class="t-btnflex__text">Wyślij</span>
-      </button>
-    </div>
+    </button>
+</div>
+
+<!-- ===== СТИЛИ ДЛЯ HOVER И ACTIVE ЭФФЕКТОВ ===== -->
+<style>
+    /* Основной стиль кнопки */
+    .submit-btn-kontakt {
+        transition: all 0.3s ease-in-out !important;
+    }
+    
+    /* Hover эффект (при наведении) */
+    .submit-btn-kontakt:hover {
+        background-color: #f6d578 !important;
+        color: #ff8562 !important;
+        box-shadow: 0px 10px 40px -2px rgba(0, 11, 48, 0.3) !important;
+        transform: translateY(-2px);
+    }
+    
+    /* Focus эффект (при фокусе с клавиатуры) */
+    .submit-btn-kontakt:focus-visible {
+        outline: 2px solid #000000;
+        outline-offset: 2px;
+    }
+    
+    /* Active эффект (при клике) */
+    .submit-btn-kontakt:active {
+        transform: translateY(0px);
+    }
+    
+    /* Disabled состояние (когда кнопка неактивна) */
+    .submit-btn-kontakt:disabled {
+        background-color: #ccc !important;
+        color: #666 !important;
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+</style>
+
 
   </div>
 
