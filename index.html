@@ -575,6 +575,76 @@ fill="#000000" /> </svg></a></li><!-- /new soclinks --> </ul> </div> </div> </di
 
   </div>
 
+<script>
+function handleFormSubmit(event) {
+  event.preventDefault();
+  
+  const form = document.getElementById('form1613364601');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalText = submitBtn.textContent;
+  
+  // Валидация
+  const name = form.querySelector('input[name="Name"]').value.trim();
+  const email = form.querySelector('input[name="Email"]').value.trim();
+  const phone = form.querySelector('input[name="Phone"]').value.trim();
+  const textarea = form.querySelector('textarea[name="Textarea"]').value.trim();
+  
+  if (!name || !email || !phone || !textarea) {
+    alert('Proszę wypełnić wszystkie pola');
+    return false;
+  }
+  
+  // Валидация email
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert('Proszę wpisać prawidłowy adres email');
+    return false;
+  }
+  
+  // Показываем "Отправка..."
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Wysyłanie...';
+  
+  // Отправляем
+  fetch(form.action, {
+    method: form.method,
+    body: new FormData(form),
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+  .then(response => {
+    if (response.ok) {
+      // Успех
+      const successBox = form.querySelector('.js-successbox');
+      if (successBox) {
+        successBox.style.display = 'block';
+      }
+      form.reset();
+      
+      // Прячем форму через 3 сек
+      setTimeout(() => {
+        form.style.opacity = '0.5';
+      }, 3000);
+      
+      return false;
+    } else {
+      alert('Błąd przy wysyłaniu. Spróbuj ponownie.');
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('Błąd przy wysyłaniu formularza. Spróbuj ponownie.');
+  })
+  .finally(() => {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalText;
+  });
+  
+  return false;
+}
+</script>
+  
 </form>
 
 
@@ -760,75 +830,7 @@ fill="#000000" /> </svg></a></li><!-- /new soclinks --> </ul> </div> </div> </di
 
  
 
-<script>
-function handleFormSubmit(event) {
-  event.preventDefault();
-  
-  const form = document.getElementById('form1613364601');
-  const submitBtn = form.querySelector('button[type="submit"]');
-  const originalText = submitBtn.textContent;
-  
-  // Валидация
-  const name = form.querySelector('input[name="Name"]').value.trim();
-  const email = form.querySelector('input[name="Email"]').value.trim();
-  const phone = form.querySelector('input[name="Phone"]').value.trim();
-  const textarea = form.querySelector('textarea[name="Textarea"]').value.trim();
-  
-  if (!name || !email || !phone || !textarea) {
-    alert('Proszę wypełnić wszystkie pola');
-    return false;
-  }
-  
-  // Валидация email
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    alert('Proszę wpisać prawidłowy adres email');
-    return false;
-  }
-  
-  // Показываем "Отправка..."
-  submitBtn.disabled = true;
-  submitBtn.textContent = 'Wysyłanie...';
-  
-  // Отправляем
-  fetch(form.action, {
-    method: form.method,
-    body: new FormData(form),
-    headers: {
-      'Accept': 'application/json'
-    }
-  })
-  .then(response => {
-    if (response.ok) {
-      // Успех
-      const successBox = form.querySelector('.js-successbox');
-      if (successBox) {
-        successBox.style.display = 'block';
-      }
-      form.reset();
-      
-      // Прячем форму через 3 сек
-      setTimeout(() => {
-        form.style.opacity = '0.5';
-      }, 3000);
-      
-      return false;
-    } else {
-      alert('Błąd przy wysyłaniu. Spróbuj ponownie.');
-    }
-  })
-  .catch(error => {
-    console.error('Error:', error);
-    alert('Błąd przy wysyłaniu formularza. Spróbuj ponownie.');
-  })
-  .finally(() => {
-    submitBtn.disabled = false;
-    submitBtn.textContent = originalText;
-  });
-  
-  return false;
-}
-</script>
+
 
 
 
