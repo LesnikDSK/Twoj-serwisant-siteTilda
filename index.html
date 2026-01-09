@@ -575,75 +575,129 @@ fill="#000000" /> </svg></a></li><!-- /new soclinks --> </ul> </div> </div> </di
 
   </div>
 
+<!-- В конце перед </form> добавь это: -->
+
+  </div>
+
+</form>
+
+<!-- ===== JAVASCRIPT ФУНКЦИЯ (ДОБАВИТЬ!) ===== -->
 <script>
 function handleFormSubmit(event) {
-  event.preventDefault();
-  
-  const form = document.getElementById('form1613364601');
-  const submitBtn = form.querySelector('button[type="submit"]');
-  const originalText = submitBtn.textContent;
-  
-  // Валидация
-  const name = form.querySelector('input[name="Name"]').value.trim();
-  const email = form.querySelector('input[name="Email"]').value.trim();
-  const phone = form.querySelector('input[name="Phone"]').value.trim();
-  const textarea = form.querySelector('textarea[name="Textarea"]').value.trim();
-  
-  if (!name || !email || !phone || !textarea) {
-    alert('Proszę wypełnić wszystkie pola');
-    return false;
-  }
-  
-  // Валидация email
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    alert('Proszę wpisać prawidłowy adres email');
-    return false;
-  }
-  
-  // Показываем "Отправка..."
-  submitBtn.disabled = true;
-  submitBtn.textContent = 'Wysyłanie...';
-  
-  // Отправляем
-  fetch(form.action, {
-    method: form.method,
-    body: new FormData(form),
-    headers: {
-      'Accept': 'application/json'
+    event.preventDefault();
+    
+    const form = document.getElementById('form1613364601');
+    const submitBtn = form.querySelector('button[type=submit]');
+    const originalText = submitBtn.textContent;
+    
+    const name = form.querySelector('input[name=Name]').value.trim();
+    const email = form.querySelector('input[name=Email]').value.trim();
+    const phone = form.querySelector('input[name=Phone]').value.trim();
+    const textarea = form.querySelector('textarea[name=Textarea]').value.trim();
+    
+    // Очистить все старые ошибки
+    form.querySelectorAll('.t-input-error').forEach(el => {
+        el.textContent = '';
+    });
+    
+    let hasError = false;
+    
+    // ✅ ПРОВЕРКА ИМЕНИ
+    if (!name) {
+        document.getElementById('error_1924215262981').textContent = 'Proszę wpisać imię i nazwisko';
+        document.getElementById('error_1924215262981').style.color = '#e74c3c';
+        hasError = true;
     }
-  })
-  .then(response => {
-    if (response.ok) {
-      // Успех
-      const successBox = form.querySelector('.js-successbox');
-      if (successBox) {
-        successBox.style.display = 'block';
-      }
-      form.reset();
-      
-      // Прячем форму через 3 сек
-      setTimeout(() => {
-        form.style.opacity = '0.5';
-      }, 3000);
-      
-      return false;
+    
+    // ✅ ПРОВЕРКА EMAIL
+    if (!email) {
+        document.getElementById('error_1924215262980').textContent = 'Proszę wpisać adres e-mail';
+        document.getElementById('error_1924215262980').style.color = '#e74c3c';
+        hasError = true;
     } else {
-      alert('Błąd przy wysyłaniu. Spróbuj ponownie.');
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            document.getElementById('error_1924215262980').textContent = 'Proszę wpisać prawidłowy adres email';
+            document.getElementById('error_1924215262980').style.color = '#e74c3c';
+            hasError = true;
+        }
     }
-  })
-  .catch(error => {
-    console.error('Error:', error);
-    alert('Błąd przy wysyłaniu formularza. Spróbuj ponownie.');
-  })
-  .finally(() => {
-    submitBtn.disabled = false;
-    submitBtn.textContent = originalText;
-  });
-  
-  return false;
+    
+    // ✅ ПРОВЕРКА ТЕЛЕФОНА
+    if (!phone) {
+        document.getElementById('error_1764160389164').textContent = 'Proszę wpisać numer telefonu';
+        document.getElementById('error_1764160389164').style.color = '#e74c3c';
+        hasError = true;
+    }
+    
+    // ✅ ПРОВЕРКА СООБЩЕНИЯ
+    if (!textarea) {
+        document.getElementById('error_1924215262982').textContent = 'Proszę wpisać wiadomość';
+        document.getElementById('error_1924215262982').style.color = '#e74c3c';
+        hasError = true;
+    }
+    
+    // Если есть ошибки - остановить
+    if (hasError) {
+        return false;
+    }
+    
+    // ✅ ОТПРАВКА ФОРМЫ
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Wysyłanie...';
+    
+    fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+    })
+    .then(response => {
+        if (response.ok) {
+            // ✅ УСПЕХ
+            const successBox = form.querySelector('.js-successbox');
+            if (successBox) {
+                successBox.style.display = 'block';
+            }
+            form.reset();
+            form.querySelectorAll('.t-input-error').forEach(el => {
+                el.textContent = '';
+            });
+            
+            setTimeout(function() {
+                form.style.opacity = 0.5;
+            }, 3000);
+            
+            return false;
+        } else {
+            document.getElementById('error_1924215262982').textContent = 'Błąd przy wysyłaniu. Spróbuj ponownie.';
+            document.getElementById('error_1924215262982').style.color = '#e74c3c';
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        document.getElementById('error_1924215262982').textContent = 'Błąd przy wysyłaniu formularza. Spróbuj ponownie.';
+        document.getElementById('error_1924215262982').style.color = '#e74c3c';
+    })
+    .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+    });
+    
+    return false;
 }
 </script>
+
+<!-- ===== СТИЛИ ДЛЯ СООБЩЕНИЙ ОБ ОШИБКАХ ===== -->
+<style>
+    .t-input-error {
+        color: #e74c3c;
+        font-size: 12px;
+        margin-top: 4px;
+        display: block;
+        min-height: 16px;
+    }
+</style>
+
   
 </form>
 
