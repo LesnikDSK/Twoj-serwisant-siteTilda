@@ -721,7 +721,7 @@ function handleFormSubmit(event) {
 }
 </script>
 
-<!-- KONTAKT CONTACTS SECTION - ЛЕВАЯ КОЛОНКА -->
+<!-- KONTAKT CONTACTS SECTION - ГОРИЗОНТАЛЬНО НА ВЕСЬ ЭКРАН -->
 <div id="rec1613364601-contacts" class="r t-rec t-rec_pt_90 t-rec_pb_45" 
      style="padding-top:90px;padding-bottom:45px;background-color:#ffffff;" 
      data-record-type="718">
@@ -745,106 +745,138 @@ function handleFormSubmit(event) {
     <style>
       #rec1613364601-contacts .t-section__title {margin-bottom:90px;}
       
-      #rec1613364601-contacts .t-container {
-        display: flex;
-        justify-content: center;
+      /* Горизонтальное расположение информации */
+      #rec1613364601-contacts .t-container-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 40px;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 20px;
         align-items: flex-start;
       }
 
-      #rec1613364601-contacts .t-col_12 {
-        width: 100%;
+      #rec1613364601-contacts .contact-section {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
       }
 
       #rec1613364601-contacts .t718__contacts {
-        margin-bottom: 20px;
+        margin: 0;
       }
 
       #rec1613364601-contacts .t718__address {
-        margin-bottom: 20px;
+        margin: 0;
       }
 
       #rec1613364601-contacts .t-sociallinks {
-        margin-top: 20px;
+        margin: 0;
+      }
+
+      #rec1613364601-contacts .t-sociallinks__wrapper {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      /* На мобильных - вертикально */
+      @media screen and (max-width:1024px) {
+        #rec1613364601-contacts .t-container-content {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
       }
 
       @media screen and (max-width:960px) {
         #rec1613364601-contacts .t-section__title {margin-bottom:45px;}
+        #rec1613364601-contacts .t-container-content {
+          gap: 20px;
+          padding: 0 15px;
+        }
       }
     </style>
 
-    <!-- КОНТЕЙНЕР -->
-    <div class="t-container">
-      <div class="t-col t-col_12" style="max-width: 450px; margin: 0 auto;">
-        <div class="t718__contentbox">
-          <div class="t718__contentwrapper">
-            
-            <!-- Контактная информация -->
-            <div class="t718__contacts t-text t-descr_xxxl">
-              <div style="font-size: 24px;" data-customstyle="yes">
-                <strong style="font-size: 28px;">Twój Serwisant</strong><br />
-                <strong style="font-size: 20px;">Profesjonalny serwis komputerowy </strong><br />
-                <strong style="font-size: 20px;">i naprawa elektroniki we Wrocławiu</strong><br /><br />
-                <strong style="font-size: 22px;">tel.: </strong>
-                <strong style="font-size: 22px; color: rgb(147, 8, 8);">
-                  <em><u><a href="tel:+48455510637" style="color: rgb(147, 8, 8); box-shadow: none; text-decoration: none; border-bottom-style: solid; border-bottom-color: rgb(245, 245, 245);">
-                    +48 455 510 637
-                  </a></u></em>
-                </strong><br />
-                <strong style="font-size: 22px;">email: </strong>
-                <strong style="font-size: 22px; color: rgb(147, 8, 8);">
-                  <em><u><a href="mailto:stanislaw.kmit@gmail.com" style="color: rgb(147, 8, 8); box-shadow: none; text-decoration: none; border-bottom-style: solid; border-bottom-color: rgb(245, 245, 245);">
-                    stanislaw.kmit@gmail.com
-                  </a></u></em>
-                </strong>
-              </div>
-            </div>
-
-            <!-- Адрес -->
-            <div class="t718__address t-text t-text_sm">
-              <div style="font-size: 22px;" data-customstyle="yes">
-                <strong>ul. Henryka Pobożnego 8/1A</strong><br />
-                <strong>50-241 Wrocław</strong><br />
-                <strong>Polska</strong>
-              </div>
-            </div>
-
-            <!-- Соцсети -->
-            <div class="t-sociallinks">
-              <ul role="list" class="t-sociallinks__wrapper" aria-label="Social media links">
-                <li class="t-sociallinks__item t-sociallinks__item_phone">
-                  <a href="tel:+48455510637" target="_self" rel="nofollow" aria-label="Telefon" title="Telefon" style="width: 30px; height: 30px;">
-                    <svg class="t-sociallinks__svg" role="presentation" width="30px" height="30px" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M50 100C77.6142 100 100 77.6142 100 50C100 22.3858 77.6142 0 50 0C22.3858 0 0 22.3858 0 50C0 77.6142 22.3858 100 50 100Z" fill="#000000"/>
-                    </svg>
-                  </a>
-                </li>
-                <li class="t-sociallinks__item t-sociallinks__item_email">
-                  <a href="mailto:stanislaw.kmit@gmail.com" target="_blank" rel="nofollow" aria-label="Email" title="Email" style="width: 30px; height: 30px;">
-                    <svg class="t-sociallinks__svg" role="presentation" width="30px" height="30px" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M50 100C77.6142 100 100 77.6142 100 50C100 22.3858 77.6142 0 50 0C22.3858 0 0 22.3858 0 50C0 77.6142 22.3858 100 50 100Z" fill="#000000"/>
-                    </svg>
-                  </a>
-                </li>
-                <li class="t-sociallinks__item t-sociallinks__item_whatsapp">
-                  <a href="https://wa.me/48455510637" target="_blank" rel="nofollow" aria-label="WhatsApp" title="WhatsApp" style="width: 30px; height: 30px;">
-                    <svg class="t-sociallinks__svg" role="presentation" width="30px" height="30px" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M50 100C77.6142 100 100 77.6142 100 50C100 22.3858 77.6142 0 50 0C22.3858 0 0 22.3858 0 50C0 77.6142 22.3858 100 50 100Z" fill="#000000"/>
-                    </svg>
-                  </a>
-                </li>
-                <li class="t-sociallinks__item t-sociallinks__item_telegram">
-                  <a href="https://t.me/asdfghjkl228322" target="_blank" rel="nofollow" aria-label="Telegram" title="Telegram" style="width: 30px; height: 30px;">
-                    <svg class="t-sociallinks__svg" role="presentation" width="30px" height="30px" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M50 100c27.614 0 50-22.386 50-50S77.614 0 50 0 0 22.386 0 50s22.386 50 50 50Z" fill="#000000"/>
-                    </svg>
-                  </a>
-                </li>
-              </ul>
-            </div>
-
+    <!-- КОНТЕЙНЕР С 3 КОЛОНКАМИ (горизонтально) -->
+    <div class="t-container-content">
+      
+      <!-- КОЛОНКА 1: Название и контакты -->
+      <div class="contact-section">
+        <div class="t718__contacts t-text t-descr_xxxl">
+          <div style="font-size: 24px;" data-customstyle="yes">
+            <strong style="font-size: 28px;">Twój Serwisant</strong><br />
+            <strong style="font-size: 18px;">Profesjonalny serwis<br />komputerowy i naprawa<br />elektroniki we Wrocławiu</strong><br /><br />
+            <strong style="font-size: 20px;">tel.:</strong><br />
+            <strong style="font-size: 20px; color: rgb(147, 8, 8);">
+              <a href="tel:+48455510637" style="color: rgb(147, 8, 8); box-shadow: none; text-decoration: none;">
+                +48 455 510 637
+              </a>
+            </strong><br /><br />
+            <strong style="font-size: 20px;">email:</strong><br />
+            <strong style="font-size: 20px; color: rgb(147, 8, 8);">
+              <a href="mailto:stanislaw.kmit@gmail.com" style="color: rgb(147, 8, 8); box-shadow: none; text-decoration: none;">
+                stanislaw.kmit@gmail.com
+              </a>
+            </strong>
           </div>
         </div>
       </div>
+
+      <!-- КОЛОНКА 2: Адрес -->
+      <div class="contact-section">
+        <div class="t718__address t-text">
+          <div style="font-size: 22px;" data-customstyle="yes">
+            <strong style="font-size: 24px; display: block; margin-bottom: 15px;">📍 Lokalizacja</strong>
+            <strong>ul. Henryka Pobożnego 8/1A</strong><br />
+            <strong>50-241 Wrocław</strong><br />
+            <strong>Polska</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- КОЛОНКА 3: Соцсети -->
+      <div class="contact-section">
+        <div style="font-size: 22px; margin-bottom: 15px;">
+          <strong style="font-size: 24px; display: block; margin-bottom: 20px;">🔗 Контакты</strong>
+        </div>
+        <div class="t-sociallinks">
+          <ul role="list" class="t-sociallinks__wrapper" aria-label="Social media links">
+            <li class="t-sociallinks__item">
+              <a href="tel:+48455510637" target="_self" rel="nofollow" aria-label="Telefon" title="Telefon" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: #333;">
+                <svg class="t-sociallinks__svg" role="presentation" width="24px" height="24px" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M50 100C77.6142 100 100 77.6142 100 50C100 22.3858 77.6142 0 50 0C22.3858 0 0 22.3858 0 50C0 77.6142 22.3858 100 50 100Z" fill="#000000"/>
+                </svg>
+                <span style="font-size: 16px;">Telefon</span>
+              </a>
+            </li>
+            <li class="t-sociallinks__item">
+              <a href="mailto:stanislaw.kmit@gmail.com" target="_blank" rel="nofollow" aria-label="Email" title="Email" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: #333;">
+                <svg class="t-sociallinks__svg" role="presentation" width="24px" height="24px" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M50 100C77.6142 100 100 77.6142 100 50C100 22.3858 77.6142 0 50 0C22.3858 0 0 22.3858 0 50C0 77.6142 22.3858 100 50 100Z" fill="#000000"/>
+                </svg>
+                <span style="font-size: 16px;">Email</span>
+              </a>
+            </li>
+            <li class="t-sociallinks__item">
+              <a href="https://wa.me/48455510637" target="_blank" rel="nofollow" aria-label="WhatsApp" title="WhatsApp" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: #333;">
+                <svg class="t-sociallinks__svg" role="presentation" width="24px" height="24px" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M50 100C77.6142 100 100 77.6142 100 50C100 22.3858 77.6142 0 50 0C22.3858 0 0 22.3858 0 50C0 77.6142 22.3858 100 50 100Z" fill="#000000"/>
+                </svg>
+                <span style="font-size: 16px;">WhatsApp</span>
+              </a>
+            </li>
+            <li class="t-sociallinks__item">
+              <a href="https://t.me/asdfghjkl228322" target="_blank" rel="nofollow" aria-label="Telegram" title="Telegram" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: #333;">
+                <svg class="t-sociallinks__svg" role="presentation" width="24px" height="24px" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M50 100c27.614 0 50-22.386 50-50S77.614 0 50 0 0 22.386 0 50s22.386 50 50 50Z" fill="#000000"/>
+                </svg>
+                <span style="font-size: 16px;">Telegram</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
     </div>
 
   </div>
