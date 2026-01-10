@@ -947,6 +947,247 @@ function handleFormSubmit(event) {
 </div>
 <!-- КОНЕЦ БЛОКА КОНТАКТНЫХ ДАННЫХ -->
 
+<!-- KONTAKT CONTACTS SECTION - UX ВАРИАНТ -->
+<div id="rec1613364601-contacts" class="r t-rec t-rec_pt_90 t-rec_pb_90" 
+     style="padding-top:90px;padding-bottom:90px;background-color:#ffffff;
+             width: 100vw;
+             margin-left: calc(-50vw + 50%);
+             padding-left: 0;
+             padding-right: 0;
+             box-sizing: border-box;" 
+     data-record-type="718">
+  
+  <div class="t718">
+    
+    <!-- ЗАГОЛОВОК -->
+    <div style="text-align: center; margin-bottom: 80px;">
+      <h2 style="font-size: 48px; margin: 0; font-weight: 700; color: #000;">
+        Kontakt
+      </h2>
+      <p style="font-size: 18px; color: #666; margin-top: 15px;">
+        Jesteśmy dostępni 24/7 dla Twoich pytań
+      </p>
+    </div>
+
+    <!-- СТИЛИ -->
+    <style>
+      #rec1613364601-contacts .contacts-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        max-width: 100%;
+        margin: 0 auto 70px;
+        padding: 0 60px;
+      }
+
+      #rec1613364601-contacts .contact-card {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 30px;
+        background: #f9f9f9;
+        border-radius: 16px;
+        border: 1px solid #e8e8e8;
+        transition: all 0.3s ease;
+      }
+
+      #rec1613364601-contacts .contact-card:hover {
+        border-color: #333;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transform: translateY(-5px);
+      }
+
+      #rec1613364601-contacts .card-icon {
+        font-size: 40px;
+        width: fit-content;
+      }
+
+      #rec1613364601-contacts .card-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: #000;
+        margin: 0;
+      }
+
+      #rec1613364601-contacts .card-subtitle {
+        font-size: 16px;
+        color: #666;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      #rec1613364601-contacts .card-links {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      #rec1613364601-contacts .card-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 16px;
+        background: #fff;
+        border: 2px solid #f0f0f0;
+        border-radius: 10px;
+        text-decoration: none;
+        color: rgb(147, 8, 8);
+        font-weight: 600;
+        font-size: 16px;
+        transition: all 0.3s ease;
+      }
+
+      #rec1613364601-contacts .card-link:hover {
+        background: rgb(147, 8, 8);
+        color: #fff;
+        border-color: rgb(147, 8, 8);
+      }
+
+      /* Соцсети строка */
+      #rec1613364601-contacts .sociallinks-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 50px 60px;
+        border-top: 1px solid #e8e8e8;
+        flex-wrap: wrap;
+      }
+
+      #rec1613364601-contacts .social-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 12px 24px;
+        background: #f0f0f0;
+        border: none;
+        border-radius: 25px;
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      #rec1613364601-contacts .social-btn:hover {
+        background: rgb(147, 8, 8);
+        color: #fff;
+      }
+
+      #rec1613364601-contacts .social-icon-small {
+        width: 20px;
+        height: 20px;
+      }
+
+      /* Мобильный вариант */
+      @media screen and (max-width:1024px) {
+        #rec1613364601-contacts .contacts-grid {
+          grid-template-columns: 1fr;
+          gap: 25px;
+          padding: 0 30px;
+          margin-bottom: 50px;
+        }
+        #rec1613364601-contacts .sociallinks-row {
+          padding: 40px 30px;
+          gap: 15px;
+        }
+      }
+
+      @media screen and (max-width:480px) {
+        #rec1613364601-contacts .contact-card {
+          padding: 20px;
+          gap: 15px;
+        }
+        #rec1613364601-contacts .card-title {
+          font-size: 20px;
+        }
+        #rec1613364601-contacts .card-link {
+          padding: 14px 16px;
+          font-size: 15px;
+        }
+        #rec1613364601-contacts .social-btn {
+          padding: 10px 20px;
+          font-size: 14px;
+          flex: 1;
+          min-width: 140px;
+        }
+        #rec1613364601-contacts .contacts-grid {
+          padding: 0 20px;
+        }
+        #rec1613364601-contacts .sociallinks-row {
+          padding: 30px 20px;
+        }
+      }
+    </style>
+
+    <!-- КОНТАКТЫ В ВИДЕ КАРТОЧЕК -->
+    <div class="contacts-grid">
+      
+      <!-- КАРТОЧКА 1: Компания -->
+      <div class="contact-card">
+        <div class="card-icon">🏢</div>
+        <h3 class="card-title">О nas</h3>
+        <p class="card-subtitle">
+          Profesjonalny serwis komputerowy i naprawa elektroniki we Wrocławiu
+        </p>
+        <p style="font-size: 14px; color: #999; margin: 0;">
+          Doświadczenie 10+ lat
+        </p>
+      </div>
+
+      <!-- КАРТОЧКА 2: Контакты -->
+      <div class="contact-card">
+        <div class="card-icon">☎️</div>
+        <h3 class="card-title">Kontakt</h3>
+        <div class="card-links">
+          <a href="tel:+48455510637" class="card-link">
+            <span>📱</span> +48 455 510 637
+          </a>
+          <a href="mailto:stanislaw.kmit@gmail.com" class="card-link">
+            <span>✉️</span> stanislaw.kmit@gmail.com
+          </a>
+        </div>
+      </div>
+
+      <!-- КАРТОЧКА 3: Адрес -->
+      <div class="contact-card">
+        <div class="card-icon">📍</div>
+        <h3 class="card-title">Lokalizacja</h3>
+        <div class="card-subtitle">
+          <strong>ul. Henryka Pobożnego 8/1A</strong><br />
+          50-241 Wrocław<br />
+          Polska
+        </div>
+        <a href="https://www.google.com/maps/place/Serwis+komputerowy+Twój+Serwisant/@51.1206374,17.0393749,17z" 
+           target="_blank" rel="noopener"
+           class="card-link" style="margin-top: 10px; justify-content: center;">
+          Otwórz mapę →
+        </a>
+      </div>
+
+    </div>
+
+    <!-- СОЦСЕТИ -->
+    <div class="sociallinks-row">
+      <a href="tel:+48455510637" class="social-btn" title="Telefon">
+        <span class="social-icon-small">📱</span> Telefon
+      </a>
+      <a href="mailto:stanislaw.kmit@gmail.com" class="social-btn" title="Email">
+        <span class="social-icon-small">✉️</span> Email
+      </a>
+      <a href="https://wa.me/48455510637" target="_blank" rel="nofollow" class="social-btn" title="WhatsApp">
+        <span class="social-icon-small">💬</span> WhatsApp
+      </a>
+      <a href="https://t.me/asdfghjkl228322" target="_blank" rel="nofollow" class="social-btn" title="Telegram">
+        <span class="social-icon-small">📲</span> Telegram
+      </a>
+    </div>
+
+  </div>
+
+</div>
 
 
 <!-- FORM SECTION - ФОРМА ОТПРАВКИ СООБЩЕНИЯ (ПОЛНАЯ И ГОТОВАЯ) -->
