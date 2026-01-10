@@ -853,20 +853,18 @@ function handleFormSubmit(event) {
 <!-- КОНЕЦ БЛОКА КОНТАКТНЫХ ДАННЫХ -->
 
 
-<!-- FORM SECTION - ФОРМА ОТПРАВКИ СООБЩЕНИЯ -->
+<!-- FORM SECTION - ФОРМА ОТПРАВКИ СООБЩЕНИЯ (ПОЛНАЯ И ГОТОВАЯ) -->
 <div id="rec1613364601-form" class="r t-rec t-rec_pt_90 t-rec_pb_45" 
      style="padding-top:90px;padding-bottom:45px;background-color:#ffffff;" 
      data-record-type="718">
   
   <div class="t718">
 
-    <!-- СТИЛИ ФОРМЫ -->
     <style>
       #rec1613364601-form .t-container {
         display: flex;
         justify-content: center;
       }
-
       #rec1613364601-form .contact-form {
         display: flex;
         flex-direction: column;
@@ -874,11 +872,9 @@ function handleFormSubmit(event) {
         max-width: 500px;
         width: 100%;
       }
-
       #rec1613364601-form .form-group {
         position: relative;
       }
-
       #rec1613364601-form .form-group label {
         display: block;
         margin-bottom: 8px;
@@ -886,7 +882,6 @@ function handleFormSubmit(event) {
         font-size: 14px;
         color: #333;
       }
-
       #rec1613364601-form .form-group input,
       #rec1613364601-form .form-group textarea {
         width: 100%;
@@ -897,19 +892,16 @@ function handleFormSubmit(event) {
         font-family: inherit;
         box-sizing: border-box;
       }
-
       #rec1613364601-form .form-group textarea {
         resize: vertical;
         min-height: 136px;
       }
-
       #rec1613364601-form .form-group input:focus,
       #rec1613364601-form .form-group textarea:focus {
         outline: none;
         border-color: #333333;
         box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.1);
       }
-
       #rec1613364601-form .success-message {
         padding: 15px;
         background-color: #d4edda;
@@ -920,11 +912,9 @@ function handleFormSubmit(event) {
         font-weight: 600;
         display: none;
       }
-
       #rec1613364601-form .success-message.show {
         display: block;
       }
-
       #rec1613364601-form .error-message {
         padding: 15px;
         background-color: #f8d7da;
@@ -934,68 +924,109 @@ function handleFormSubmit(event) {
         margin-bottom: 20px;
         display: none;
       }
-
       #rec1613364601-form .error-message.show {
         display: block;
       }
-
-      /* Стили кнопки Wyślij */
-      #rec1613364601-form .t-btnflex.t-btnflex_type_submit {
+      #rec1613364601-form .t-submit {
         color: #333333;
         background-color: #f6d578;
-        border-style: solid !important;
-        border-color: #000000 !important;
-        border-width: 2px;
+        border: 2px solid #000000 !important;
         border-radius: 30px;
         box-shadow: 0px 10px 40px -2px rgba(0,11,48,0.3) !important;
-        transition-duration: 0.3s;
-        transition-property: background-color, color, border-color, box-shadow, opacity, transform, gap;
-        transition-timing-function: ease-in-out;
-        width: 100%;
         padding: 12px 24px;
         font-size: 16px;
         font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        width: 100%;
       }
-
-      #rec1613364601-form .t-btnflex.t-btnflex_type_submit:not(.t-animate_no-hover):hover {
+      #rec1613364601-form .t-submit:hover {
         color: #ff8562 !important;
-        box-shadow: 0px 10px 40px -2px rgba(0,11,48,0.3) !important;
         background-color: #fae6ac !important;
-      }
-
-      #rec1613364601-form .t-btnflex.t-btnflex_type_submit:not(.t-animate_no-hover):focus-visible {
-        color: #ff8562 !important;
         box-shadow: 0px 10px 40px -2px rgba(0,11,48,0.3) !important;
-        background-color: #fae6ac !important;
       }
     </style>
 
-    <!-- КОНТЕЙНЕР ФОРМЫ -->
     <div class="t-container">
       <div class="t-col t-col_12">
 
-        <!-- Сообщение об успехе -->
         <div class="success-message" id="successMessage">
           ✅ Dziękuję! Skontaktuję się z Państwem!
         </div>
 
-        <!-- Сообщение об ошибке -->
         <div class="error-message" id="errorMessage">
           ⚠️ Proszę wypełnić wszystkie wymagane pola prawidłowo
         </div>
 
-        <!-- ФОРМА (БЕЗ TILDA) -->
         <form id="contactForm" class="contact-form" 
               action="https://formspree.io/f/mvgdredp" 
               method="POST"
               onsubmit="return validateForm(event)">
           
-          <!-- Имя -->
           <div class="form-group">
-            <label for="name">
-              Masz pytania lub chcesz umówić naprawę? Napisz kilka słów o problemie – odezwiemy się z propozycją rozwiązania.
-            </label>
-            <input type="text" id="name" name="
+            <label for="name">Masz pytania lub chcesz umówić naprawę? Napisz kilka słów o problemie – odezwiemy się z propozycją rozwiązania.</label>
+            <input type="text" id="name" name="name" placeholder="Imię i nazwisko" required>
+          </div>
+
+          <div class="form-group">
+            <input type="email" id="email" name="_replyto" placeholder="Adres e-mail" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone" style="font-size: 12px; color: #666;">Numer telefonu</label>
+            <input type="tel" id="phone" name="phone" placeholder="+48 455 510 637">
+          </div>
+
+          <div class="form-group">
+            <textarea id="message" name="message" placeholder="Wiadomość (opis problemu, model urządzenia)" required></textarea>
+          </div>
+
+          <button type="submit" class="t-submit">Wyślij</button>
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- JAVASCRIPT ДЛЯ ФОРМЫ -->
+<script>
+function validateForm(event) {
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+  
+  const successMessage = document.getElementById('successMessage');
+  const errorMessage = document.getElementById('errorMessage');
+  
+  successMessage.classList.remove('show');
+  errorMessage.classList.remove('show');
+  
+  if (!name || !email || !message) {
+    errorMessage.classList.add('show');
+    return false;
+  }
+  
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    errorMessage.classList.add('show');
+    return false;
+  }
+  
+  return true;
+}
+
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  if (validateForm(e)) {
+    setTimeout(function() {
+      document.getElementById('successMessage').classList.add('show');
+      document.getElementById('contactForm').reset();
+    }, 500);
+  }
+});
+</script>
 
  
  </body> </html>
