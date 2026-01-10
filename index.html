@@ -721,15 +721,20 @@ function handleFormSubmit(event) {
 }
 </script>
 
-<!-- KONTAKT CONTACTS SECTION - ГОРИЗОНТАЛЬНО НА ВЕСЬ ЭКРАН -->
+<!-- KONTAKT CONTACTS SECTION - НА ВЕСЬ ЭКРАН -->
 <div id="rec1613364601-contacts" class="r t-rec t-rec_pt_90 t-rec_pb_45" 
-     style="padding-top:90px;padding-bottom:45px;background-color:#ffffff;" 
+     style="padding-top:90px;padding-bottom:45px;background-color:#ffffff;
+             width: 100vw;
+             margin-left: calc(-50vw + 50%);
+             padding-left: 0;
+             padding-right: 0;
+             box-sizing: border-box;" 
      data-record-type="718">
   
   <div class="t718">
     
     <!-- ЗАГОЛОВОК -->
-    <div class="t-container t-align_center">
+    <div class="t-container t-align_center" style="padding: 0 20px;">
       <div class="t-col t-col_12">
         <div class="t-section">
           <h2 class="t-section__title t-title t-title_xxl" style="font-size:48px;">
@@ -752,7 +757,7 @@ function handleFormSubmit(event) {
         gap: 40px;
         max-width: 100%;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0 40px;
         align-items: flex-start;
       }
 
@@ -778,6 +783,7 @@ function handleFormSubmit(event) {
         display: flex;
         gap: 12px;
         flex-wrap: wrap;
+        flex-direction: column;
       }
 
       /* На мобильных - вертикально */
@@ -792,12 +798,19 @@ function handleFormSubmit(event) {
         #rec1613364601-contacts .t-section__title {margin-bottom:45px;}
         #rec1613364601-contacts .t-container-content {
           gap: 20px;
+          padding: 0 20px;
+        }
+      }
+
+      @media screen and (max-width:480px) {
+        #rec1613364601-contacts .t-container-content {
           padding: 0 15px;
+          gap: 15px;
         }
       }
     </style>
 
-    <!-- КОНТЕЙНЕР С 3 КОЛОНКАМИ (горизонтально) -->
+    <!-- КОНТЕЙНЕР С 3 КОЛОНКАМИ (горизонтально на весь экран) -->
     <div class="t-container-content">
       
       <!-- КОЛОНКА 1: Название и контакты -->
@@ -837,7 +850,7 @@ function handleFormSubmit(event) {
       <!-- КОЛОНКА 3: Соцсети -->
       <div class="contact-section">
         <div style="font-size: 22px; margin-bottom: 15px;">
-          <strong style="font-size: 24px; display: block; margin-bottom: 20px;">🔗 Контакты</strong>
+          <strong style="font-size: 24px; display: block; margin-bottom: 20px;">🔗 Kontakty</strong>
         </div>
         <div class="t-sociallinks">
           <ul role="list" class="t-sociallinks__wrapper" aria-label="Social media links">
