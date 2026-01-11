@@ -1447,7 +1447,8 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   });
 </script> 
 
-<h2>Kontakt222 </h2>
+<!-- Kontakt -->
+<h2>Kontakt 222</h2>
 
 <form id="contactForm" class="contact-form"
       action="https://formspree.io/f/mvgdredp"
@@ -1475,59 +1476,98 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   <button type="submit">Wyślij</button>
 </form>
 
-<div id="thankModal" class="modal" style="display:none;">
+<!-- Модальное окно успеха -->
+<div id="thankModal" class="modal" style="display:none;" role="dialog" aria-modal="true"
+     aria-labelledby="thankModalTitle" aria-describedby="thankModalDesc">
   <div class="modal-content">
     <button type="button" class="close" aria-label="Close">&times;</button>
-    <p>Dziękujemy za wiadomość!</p>
+    <h3 id="thankModalTitle">Sukces</h3>
+    <p id="thankModalDesc">Dziękujemy za wiadomość!</p>
   </div>
 </div>
 
+<style>
+  /* Минимальные стили модалки (можно заменить на свои) */
+  .modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 9999;
+  }
+  .modal-content {
+    background: #fff;
+    max-width: 520px;
+    margin: 10vh auto;
+    padding: 20px;
+    border-radius: 12px;
+    position: relative;
+  }
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    font-size: 28px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    line-height: 1;
+  }
+</style>
+
 <script>
-  // Модалка
+  // --- Formspree AJAX submit (без редиректа на страницу Formspree) ---
+  // Formspree рекомендует AJAX-отправку с заголовком Accept: application/json [web:27]
+
+  const form = document.getElementById('contactForm');
+  const modal = document.getElementById('thankModal');
+  const closeBtn = modal.querySelector('.close');
+
   function openModal() {
-    document.getElementById('thankModal').style.display = 'block';
+    modal.style.display = 'block';
   }
 
-  function closeModal() {
-    document.getElementById('thankModal').style.display = 'none';
+  // ВАЖНО: очистка формы происходит при закрытии модалки (крестик/фон)
+  function closeModalAndReset() {
+    modal.style.display = 'none';
+    form.reset();
   }
 
-  // Закрытие по крестику/фону
-  document.querySelector('#thankModal .close').addEventListener('click', closeModal);
-  document.getElementById('thankModal').addEventListener('click', (e) => {
-    if (e.target.id === 'thankModal') closeModal();
+  closeBtn.addEventListener('click', closeModalAndReset);
+
+  // Закрытие по клику на затемнённый фон
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModalAndReset();
   });
 
-  // Отправка формы
-  const form = document.getElementById('contactForm');
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault(); // останавливаем обычную отправку [web:22]
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
     try {
       const response = await fetch(form.action, {
-        method: form.method,
-        body: new FormData(form), // отправляем поля формы [web:22]
-        headers: { 'Accept': 'application/json' } // рекомендовано Formspree для AJAX [web:27]
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
       });
 
       if (response.ok) {
         openModal();
-        form.reset();
+        // НЕ делаем reset здесь — нужно очистить при закрытии крестиком
       } else {
-        // Formspree может вернуть JSON с ошибками
+        // можно попытаться показать ошибки Formspree
         const data = await response.json().catch(() => null);
-        const msg = data?.errors?.map(e => e.message).join(", ") || "Ups, coś poszło nie tak. Spróbuj ponownie.";
+        const msg = data?.errors?.map(err => err.message).join(', ')
+          || 'Ups, coś poszło nie tak. Spróbuj ponownie.';
         alert(msg);
       }
     } catch (err) {
-      alert("Ups, coś poszło nie tak. Spróbuj ponownie.");
+      alert('Ups, coś poszło nie tak. Spróbuj ponownie.');
     }
   });
 
-  // Твой togglePhotosBtn — безопасно, чтобы не ломал остальной JS
+  // --- Твой код для фото-списка (защита от отсутствия кнопки) ---
   const toggleBtn = document.getElementById('togglePhotosBtn');
   if (toggleBtn) {
-    toggleBtn.addEventListener('click', function () {
+    toggleBtn.addEventListener('click', function() {
       const list = document.getElementById('photoDropdown');
       if (!list) return;
       list.style.display = (list.style.display === 'none' || list.style.display === '') ? 'block' : 'none';
@@ -1537,6 +1577,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     });
   }
 </script>
+
 
  
  </body> </html>
