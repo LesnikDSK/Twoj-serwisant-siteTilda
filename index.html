@@ -1499,7 +1499,144 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 </script>
 
  
- 
+ <!-- Kontakt333 (Только форма) -->
+<div id="Kontakt444" class="r t-rec t-recpt90 t-recpb90" 
+     style="padding-top:90px;padding-bottom:90px;background-color:#ffffff; " 
+     data-record-type="678">
+    
+    <!-- Стили для формы, идентичные оригинальному блоку Kontakt -->
+    <style>
+        #Kontakt333 .t-input-title {
+            color: #000000;
+            font-family: 'TildaSans', Arial, sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            padding-bottom: 5px;
+        }
+        #Kontakt333 .t-input {
+            background-color: #ffffff;
+            color: #000000;
+            border: 1px solid #c9c9c9;
+            border-radius: 8px; /* Скругление полей */
+            height: 60px;
+            font-size: 16px;
+            padding: 0 20px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+        #Kontakt333 .t-input:focus {
+            border-color: #000000;
+            outline: none;
+        }
+        #Kontakt333 .t-input-group {
+            margin-bottom: 25px;
+        }
+        #Kontakt333 .t-submit {
+            color: #333333;
+            background-color: #f6d578; /* Желтый цвет кнопки */
+            border: 2px solid #333333;
+            border-radius: 30px; /* Круглая кнопка */
+            font-family: 'TildaSans', Arial, sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 16px;
+            padding: 0 40px;
+            height: 60px;
+            line-height: 56px; /* height - 2*border */
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0px 10px 40px -2px rgba(0,11,48,0.3);
+        }
+        #Kontakt333 .t-submit:hover {
+            background-color: #fae6ac;
+            color: #ff8562;
+            box-shadow: 0px 15px 50px -2px rgba(0,11,48,0.4);
+        }
+        #Kontakt333 .t-form__submit {
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        /* Адаптив для мобильных */
+        @media screen and (max-width: 640px) {
+            #Kontakt333 .t-submit {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <div class="t-container">
+        <div class="t-col t-col_8 t-prefix_2">
+            
+            <!-- Заголовок формы -->
+            <div style="text-align:center; margin-bottom:40px;">
+                <div style="font-family:'TildaSans',Arial,sans-serif; font-size:36px; font-weight:700; color:#000; margin-bottom:15px;">
+                    Masz pytania?
+                </div>
+                <div style="font-family:'TildaSans',Arial,sans-serif; font-size:18px; color:#666;">
+                    Wypełnij formularz, a my skontaktujemy się z Tobą z propozycją rozwiązania.
+                </div>
+            </div>
+
+            <!-- Сама форма -->
+            <form id="formKontakt333" name='formKontakt333' role="form" action="https://formspree.io/f/mvgdredp" method="POST" class="t-form js-form-proccess t-form_inputs-total_4">
+                
+                <!-- Поле Имя -->
+                <div class="t-input-group t-input-group_nm">
+                    <label for="name_333" class="t-input-title">Imię i nazwisko</label>
+                    <div class="t-input-block">
+                        <input type="text" autocomplete="name" name="name" id="name_333" class="t-input js-tilda-rule" value="" placeholder="Jan Kowalski" required>
+                    </div>
+                </div>
+
+                <!-- Поле Email -->
+                <div class="t-input-group t-input-group_em">
+                    <label for="email_333" class="t-input-title">Email</label>
+                    <div class="t-input-block">
+                        <input type="email" autocomplete="email" name="replyto" id="email_333" class="t-input js-tilda-rule" value="" placeholder="jan@example.com" required>
+                    </div>
+                </div>
+
+                <!-- Поле Телефон -->
+                <div class="t-input-group t-input-group_ph">
+                    <label for="phone_333" class="t-input-title">Numer telefonu</label>
+                    <div class="t-input-block">
+                        <input type="tel" autocomplete="tel" name="phone" id="phone_333" class="t-input js-tilda-rule" value="" placeholder="+48 000 000 000" required>
+                    </div>
+                </div>
+
+                <!-- Поле Сообщение -->
+                <div class="t-input-group t-input-group_ta">
+                    <label for="message_333" class="t-input-title">Wiadomość</label>
+                    <div class="t-input-block">
+                        <textarea name="message" id="message_333" class="t-input js-tilda-rule" style="height:120px; padding-top:15px; resize:vertical;" placeholder="Opisz problem lub model urządzenia..." required></textarea>
+                    </div>
+                </div>
+
+                <!-- Кнопка отправки -->
+                <div class="t-form__errorbox-middle">
+                    <div class="js-errorbox-all t-form__errorbox-wrapper" style="display:none;">
+                        <div class="t-form__errorbox-text t-text t-text_md t-red"></div>
+                    </div>
+                </div>
+                
+                <div class="t-form__submit">
+                    <button type="submit" class="t-submit" style="color:#333333;background-color:#f6d578;">WYŚLIJ WIADOMOŚĆ</button>
+                </div>
+
+            </form>
+            
+            <div style="text-align:center; font-size:14px; margin-top:20px; color:#999; font-family:'TildaSans',Arial,sans-serif;">
+                Administratorem Twoich danych osobowych jest Twój Serwisant.<br>
+                Szczegóły w <a href="page100082036.html" target="_blank" style="color:#999; text-decoration:underline;">Polityce Prywatności</a>.
+            </div>
+
+        </div>
+    </div>
+</div>
+
 
  
  </body> </html>
