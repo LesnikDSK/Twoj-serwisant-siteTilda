@@ -962,7 +962,7 @@ function handleFormSubmit(event) {
     <!-- ЗАГОЛОВОК -->
     <div style="text-align: center; margin-bottom: 80px;">
       <h2 style="font-size: 48px; margin: 0; font-weight: 700; color: #000;">
-        Kontakt
+        Kontakt111
       </h2>
       <p style="font-size: 18px; color: #666; margin-top: 15px;">
         Jesteśmy dostępni 24/7 dla Twoich pytań
@@ -1368,7 +1368,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
  
 
  <section id="contact" class="section">
-  <h2>Kontakt</h2>
+  <h2>Kontakt222</h2>
 
   <form id="contactForm" 
         class="contact-form"
@@ -1408,30 +1408,44 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 
 <style>
   .modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.55);
-    z-index: 9999;
-    display: none;
-  }
-  .modal-content {
-    background: #fff;
-    max-width: 520px;
-    margin: 10vh auto;
-    padding: 20px;
-    border-radius: 12px;
-    position: relative;
-  }
-  .close {
-    position: absolute;
-    top: 10px;
-    right: 12px;
-    font-size: 28px;
-    background: transparent;
-    border: 0;
-    cursor: pointer;
-    line-height: 1;
-  }
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 9999;
+  display: none;
+  /* Для центрирования */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: #fff;
+  max-width: 520px;
+  width: 90%;
+  padding: 30px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  font-size: 28px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  line-height: 1;
+  color: #333;
+  transition: color 0.2s;
+}
+
+.close:hover {
+  color: #ff0000;
+}
+
 </style>
 
 <script>
