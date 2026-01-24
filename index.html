@@ -910,15 +910,25 @@ function handleFormSubmit(event) {
     <div class="contact-card" style="
     font-family: 'TildaSans', Arial, sans-serif;
     padding: 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     
-    /* ЦЕНТРИРОВАНИЕ */
-    text-align: center;      /* Текст по центру */
-    align-items: center;     /* Блоки по центру */
+    /* ВКЛЮЧАЕМ FLEX ДЛЯ ВЫРАВНИВАНИЯ */
+    display: flex;
+    flex-direction: column;    /* Элементы друг под другом */
+    
+    /* 1. ВЕРТИКАЛЬНОЕ ВЫРАВНИВАНИЕ: ПО ЦЕНТРУ */
+    justify-content: center;   
+    
+    /* 2. ГОРИЗОНТАЛЬНОЕ ВЫРАВНИВАНИЕ БЛОКОВ: ПО ПРАВОМУ КРАЮ */
+    align-items: flex-end;     
+    
+    /* 3. ВЫРАВНИВАНИЕ САМОГО ТЕКСТА: ПО ПРАВОМУ КРАЮ */
+    text-align: right;         
+    
+    /* Если нужна фиксированная высота, чтобы 'center' было видно */
+    /* min-height: 200px; */ 
 ">
-    <!-- Заголовок-невидимка для выравнивания (высота шрифта 28px + margin 15px = 43px) -->
+    
+    <!-- Заголовок-невидимка (если нужен для симметрии с первой карточкой) -->
     <div style="height: 43px; width: 1px;"></div> 
 
     <div class="card-subtitle" style="font-size: 22px; line-height: 1.3;">
