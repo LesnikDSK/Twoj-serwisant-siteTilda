@@ -737,210 +737,174 @@ function handleFormSubmit(event) {
   
   <div class="t718">
     
-    <!-- ЗАГОЛОВОК -->
-    <div style="text-align: center; margin-bottom: 80px;">
-      <h2 style="font-size: 36px; margin: 0; font-weight: 700; color: #000;">
-        Kontakt111
-      </h2>
-          <h3 class="card-title"><strong>ul. Henryka Pobożnego 8/1A</strong><br />
-          50-241 Wrocław<br />
-          Polska
-                 </div></h3>
-
-     
-
-<!-- КОНТАКТЫ В ВИДЕ КАРТОЧЕК -->
-    <div class="contacts-grid">
-      
-      <!-- КАРТОЧКА 1: Компания -->
-     <div class="contact-card">
-  <h3 class="card-title">Twój Serwisant</h3>
-  <p class="card-links">Profesjonalny serwis komputerowy i naprawa elektroniki we Wrocławiu</p>
-      </div>
-
-<!-- КАРТОЧКА 3: Адрес -->
-      <div class="contact-card">
-         <h3 class="card-title">Lokalizacja</h3>
-        <div class="card-subtitle">
-          <strong>ul. Henryka Pobożnego 8/1A</strong><br />
-          50-241 Wrocław<br />
-               </div>
-       </div>
-     
-  
-  <!-- КАРТОЧКА 2: Контакты -->
-<div class="contact-card">
-   <a href="tel:+48455510637" class="social-btn" title="Telefon">
-        <span class="social-icon-small">📞</span> Telefon
-      </a>
-      <a href="mailto:stanislaw.kmit@gmail.com" class="social-btn" title="Email">
-        <span class="social-icon-small">✉️</span> Email
-      </a>
-      <a href="https://wa.me/48455510637" target="_blank" rel="nofollow" class="social-btn" title="WhatsApp">
-        <span class="social-icon-small">💬</span> WhatsApp
-      </a>
-      <a href="https://t.me/asdfghjkl228322" target="_blank" rel="nofollow" class="social-btn" title="Telegram">
-        <span class="social-icon-small">📲</span> Telegram
-      </a>
- </div>
-  </div>
-</div>
- </div>
-
- 
- 
-    <!-- СТИЛИ -->
+  <div id="rec1613364601-contacts" class="r t-rec t-rec_pt_90 t-rec_pb_90" style="padding-top:90px;padding-bottom:90px;background-color:#ffffff; width: 100vw; margin-left: calc(-50vw + 50%); padding-left: 0; padding-right: 0; box-sizing: border-box;" data-record-type="718">
+    
     <style>
-      #rec1613364601-contacts .contacts-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 40px;
-        max-width: 100%;
-        margin: 0 auto 70px;
-        padding: 0 60px;
-      }
-
-      #rec1613364601-contacts .contact-card {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding: 30px;
-        background: #f9f9f9;
-        border-radius: 16px;
-        border: 1px solid #e8e8e8;
-        transition: all 0.3s ease;
-      }
-
-      #rec1613364601-contacts .contact-card:hover {
-        border-color: #333;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        transform: translateY(-5px);
-      }
-
-      #rec1613364601-contacts .card-icon {
-        font-size: 40px;
-        width: fit-content;
-      }
-
-      #rec1613364601-contacts .card-title {
-        font-size: 22px;
-        font-weight: 700;
-        color: #000;
-        margin: 0;
-      }
-
-      #rec1613364601-contacts .card-subtitle {
-        font-size: 16px;
-        color: #666;
-        line-height: 1.6;
-        margin: 0;
-      }
-
-      #rec1613364601-contacts .card-links {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      #rec1613364601-contacts .card-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 12px 16px;
-        background: #fff;
-        border: 2px solid #f0f0f0;
-        border-radius: 10px;
-        text-decoration: none;
-        color: rgb(147, 8, 8);
-        font-weight: 600;
-        font-size: 16px;
-        transition: all 0.3s ease;
-      }
-
-      #rec1613364601-contacts .card-link:hover {
-        background: rgb(147, 8, 8);
-        color: #fff;
-        border-color: rgb(147, 8, 8);
-      }
-
-      /* Соцсети строка */
-      #rec1613364601-contacts .sociallinks-row {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-        padding: 50px 60px;
-        border-top: 1px solid #e8e8e8;
-        flex-wrap: wrap;
-      }
-
-      #rec1613364601-contacts .social-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        padding: 12px 24px;
-        background: #f0f0f0;
-        border: none;
-        border-radius: 25px;
-        text-decoration: none;
-        color: #333;
-        font-weight: 600;
-        font-size: 16px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      #rec1613364601-contacts .social-btn:hover {
-        background: rgb(147, 8, 8);
-        color: #fff;
-      }
-
-      #rec1613364601-contacts .social-icon-small {
-        width: 20px;
-        height: 20px;
-      }
-
-      /* Мобильный вариант */
-      @media screen and (max-width:1024px) {
         #rec1613364601-contacts .contacts-grid {
-          grid-template-columns: 1fr;
-          gap: 25px;
-          padding: 0 30px;
-          margin-bottom: 50px;
+            display: grid;
+            /* Изменено на 2 колонки, так как осталась 2 карточки */
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 40px;
+            max-width: 1000px; /* Можно немного уменьшить ширину, если нужно */
+            margin: 0 auto 50px; /* Отступ снизу уменьшен, так как ниже будут кнопки */
+            padding: 0 60px;
         }
-        #rec1613364601-contacts .sociallinks-row {
-          padding: 40px 30px;
-          gap: 15px;
-        }
-      }
 
-      @media screen and (max-width:480px) {
         #rec1613364601-contacts .contact-card {
-          padding: 20px;
-          gap: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 30px;
+            background: #f9f9f9;
+            border-radius: 16px;
+            border: 1px solid #e8e8e8;
+            transition: all 0.3s ease;
         }
+
+        #rec1613364601-contacts .contact-card:hover {
+            border-color: #333;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+
         #rec1613364601-contacts .card-title {
-          font-size: 20px;
+            font-size: 22px;
+            font-weight: 700;
+            color: #000;
+            margin: 0;
         }
-        #rec1613364601-contacts .card-link {
-          padding: 14px 16px;
-          font-size: 15px;
+
+        #rec1613364601-contacts .card-subtitle {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
         }
-        #rec1613364601-contacts .social-btn {
-          padding: 10px 20px;
-          font-size: 14px;
-          flex: 1;
-          min-width: 140px;
+
+        #rec1613364601-contacts .card-links {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
         }
-        #rec1613364601-contacts .contacts-grid {
-          padding: 0 20px;
-        }
+
+        /* Стили для новой строки с контактами */
         #rec1613364601-contacts .sociallinks-row {
-          padding: 30px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 0 60px;
+            flex-wrap: wrap;
+            margin-top: 20px;
         }
-      }
+
+        #rec1613364601-contacts .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #rec1613364601-contacts .social-btn:hover {
+            background: rgb(147, 8, 8);
+            color: #fff;
+        }
+
+        #rec1613364601-contacts .social-icon-small {
+            width: 20px;
+            height: 20px;
+            /* Здесь может быть ваш SVG или background-image для иконки */
+        }
+
+        @media screen and (max-width: 1024px) {
+            #rec1613364601-contacts .contacts-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding: 0 30px;
+                margin-bottom: 50px;
+            }
+            #rec1613364601-contacts .sociallinks-row {
+                padding: 0 30px;
+                gap: 15px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            #rec1613364601-contacts .contact-card {
+                padding: 20px;
+                gap: 15px;
+            }
+            #rec1613364601-contacts .card-title {
+                font-size: 20px;
+            }
+            #rec1613364601-contacts .social-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+                flex: 1;
+                min-width: 140px;
+            }
+            #rec1613364601-contacts .contacts-grid {
+                padding: 0 20px;
+            }
+            #rec1613364601-contacts .sociallinks-row {
+                padding: 0 20px;
+            }
+        }
     </style>
+
+    <div class="t718">
+        <div style="text-align: center; margin-bottom: 80px;">
+            <h2 style="font-size: 36px; margin: 0; font-weight: 700; color: #000;">Kontakt111</h2>
+        </div>
+
+        <!-- Сетка карточек (осталось 2 карточки) -->
+        <div class="contacts-grid">
+            <!-- Карточка 1 -->
+            <div class="contact-card">
+                <h3 class="card-title">Twój Serwisant</h3>
+                <p class="card-links">Profesjonalny serwis komputerowy i naprawa elektroniki we Wrocławiu</p>
+            </div>
+            
+            <!-- Карточка 2 (Локализация) -->
+            <div class="contact-card">
+                <h3 class="card-title">Lokalizacja</h3>
+                <div class="card-subtitle">
+                    <strong>ul. Henryka Pobożnego 81A</strong><br>
+                    50-241 Wrocław<br>
+                    Polska
+                </div>
+            </div>
+        </div>
+        
+        <!-- Новая строка с контактами из удаленной карточки -->
+        <div class="sociallinks-row">
+            <a href="tel:+48455510637" class="social-btn" title="Telefon">
+                <span class="social-icon-small"></span> Telefon
+            </a>
+            <a href="mailto:stanislaw.kmit@gmail.com" class="social-btn" title="Email">
+                <span class="social-icon-small"></span> Email
+            </a>
+            <a href="https://wa.me/48455510637" target="_blank" rel="nofollow" class="social-btn" title="WhatsApp">
+                <span class="social-icon-small"></span> WhatsApp
+            </a>
+            <a href="https://t.me/asdfghjkl228322" target="_blank" rel="nofollow" class="social-btn" title="Telegram">
+                <span class="social-icon-small"></span> Telegram
+            </a>
+        </div>
+
+    </div>
+</div>
 
    
 
