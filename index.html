@@ -888,20 +888,43 @@ function handleFormSubmit(event) {
         </div>
         
         <!-- Новая строка с контактами из удаленной карточки -->
-        <div class="sociallinks-row">
-            <a href="tel:+48455510637" class="social-btn" title="Telefon">
-                <span class="social-icon-small"></span> Telefon
-            </a>
-            <a href="mailto:stanislaw.kmit@gmail.com" class="social-btn" title="Email">
-                <span class="social-icon-small"></span> Email
-            </a>
-            <a href="https://wa.me/48455510637" target="_blank" rel="nofollow" class="social-btn" title="WhatsApp">
-                <span class="social-icon-small"></span> WhatsApp
-            </a>
-            <a href="https://t.me/asdfghjkl228322" target="_blank" rel="nofollow" class="social-btn" title="Telegram">
-                <span class="social-icon-small"></span> Telegram
-            </a>
-        </div>
+        <<div class="t-sociallinks">
+  <ul role="list" class="t-sociallinks__wrapper" aria-label="Social media links">
+    <!-- Telegram -->
+    <li class="t-sociallinks__item t-sociallinks__item_telegram">
+      <a href="https://t.me/asdfghjkl228322" target="_blank" rel="nofollow" aria-label="Telegram" title="Telegram" style="width: 30px; height: 30px;">
+        <svg class="t-sociallinks__svg" role="presentation" width="30px" height="30px" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M50 100c27.614 0 50-22.386 50-50S77.614 0 50 0 0 22.386 0 50s22.386 50 50 50Zm21.977-68.056c.386-4.38-4.24-2.576-4.24-2.576-3.415 1.414-6.937 2.85-10.497 4.302-11.04 4.503-22.444 9.155-32.159 13.734-5.268 1.932-2.184 3.864-2.184 3.864l8.351 2.577c3.855 1.16 5.91-.129 5.91-.129l17.988-12.238c6.424-4.38 4.882-.773 3.34.773l-13.49 12.882c-2.056 1.804-1.028 3.35-.129 4.123 2.55 2.249 8.82 6.364 11.557 8.16.712.467 1.185.778 1.292.858.642.515 4.111 2.834 6.424 2.319 2.313-.516 2.57-3.479 2.57-3.479l3.083-20.226c.462-3.511.993-6.886 1.417-9.582.4-2.546.705-4.485.767-5.362Z" fill="#000000"/>
+        </svg>
+      </a>
+    </li>
+    <!-- Email -->
+    <li class="t-sociallinks__item t-sociallinks__item_email">
+      <a href="mailto:stanislaw.kmit@gmail.com" target="_blank" rel="nofollow" aria-label="Email" title="Email" style="width: 30px; height: 30px;">
+        <svg class="t-sociallinks__svg" role="presentation" width="30px" height="30px" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M50 100C77.6142 100 100 77.6142 100 50C100 22.3858 77.6142 0 50 0C22.3858 0 0 22.3858 0 50C0 77.6142 22.3858 100 50 100ZM51.8276 49.2076L74.191 33.6901C73.4347 32.6649 72.2183 32 70.8466 32H29.1534C27.8336 32 26.6576 32.6156 25.8968 33.5752L47.5881 49.172C48.8512 50.0802 50.5494 50.0945 51.8276 49.2076ZM75 63.6709V37.6286L53.4668 52.57C51.1883 54.151 48.1611 54.1256 45.9095 52.5066L25 37.4719V63.6709C25 65.9648 26.8595 67.8243 29.1534 67.8243H70.8466C73.1405 67.8243 75 65.9648 75 63.6709Z" fill="#000000"/>
+        </svg>
+      </a>
+    </li>
+    <!-- WhatsApp -->
+    <li class="t-sociallinks__item t-sociallinks__item_whatsapp">
+      <a href="https://wa.me/48455510637" target="_blank" rel="nofollow" aria-label="WhatsApp" title="WhatsApp" style="width: 30px; height: 30px;">
+        <svg class="t-sociallinks__svg" role="presentation" width="30px" height="30px" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M50 0C22.4 0 0 22.4 0 50c0 8.8 2.3 17.1 6.3 24.3L2.1 96.6l23.1-6c6.8 3.7 14.6 5.8 22.8 5.8c27.6 0 50-22.4 50-50S77.6 0 50 0z M50 83.3c-7.3 0-14.3-2-20.4-5.6l-1.5-0.9l-15.1 4l4-14.7l-0.9-1.5C12.3 64.3 10 57.3 10 50c0-22.1 17.9-40 40-40 s40 17.9 40 40S72.1 90 50 90z M71.8 59.8c-1.2-0.6-7.1-3.5-8.2-3.9c-1.1-0.4-1.9-0.6-2.7 0.6c-0.8 1.2-3.1 3.9-3.8 4.7 c-0.7 0.8-1.4 0.9-2.6 0.3c-1.2-0.6-5.1-1.9-9.7-6c-3.6-3.2-6-7.2-6.7-8.4c-0.7-1.2-0.1-1.9 0.5-2.5c0.5-0.5 1.2-1.4 1.7-2.1 c0.6-0.7,0.8-1.2 1.2-2c0.4-0.8,0.2-1.5-0.1-2.1c-0.3-0.6-2.7-6.5-3.7-8.9c-1-2.3-2-2-2.7-2c-0.7-0.1-1.5-0.1-2.3-0.1 c-0.8,0-2.1,0.3-3.2,1.5c-1.1,1.2-4.2,4.1-4.2,10s4.3,11.6,4.9,12.5c0.6,0.9,8.5,13,20.6,18.2c2.9,1.2,5.1,2,6.9,2.5 c2.9,0.9,5.5,0.8,7.6,0.5c2.3-0.3,7.1-2.9,8.1-5.7c1-2.8,1-5.2,0.7-5.7C73.7,60.6,73,60.4,71.8,59.8z" fill="#000000"/>
+        </svg>
+      </a>
+    </li>
+    <!-- Telefon -->
+    <li class="t-sociallinks__item t-sociallinks__item_phone">
+      <a href="tel:+48455510637" target="_self" rel="nofollow" aria-label="Telefon" title="Telefon" style="width: 30px; height: 30px;">
+        <svg class="t-sociallinks__svg" role="presentation" width="30px" height="30px" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M50 0C22.4 0 0 22.4 0 50s22.4 50 50 50 50-22.4 50-50S77.6 0 50 0zm0 94c-24.3 0-44-19.7-44-44S25.7 6 50 6s44 19.7 44 44-19.7 44-44 44zm21.6-22.8c-2.6 2.6-5.7 4.3-9.3 4.3-2.4 0-4.7-.7-7-2.1-1.3-.8-6-3.9-10.9-8.8-4.9-4.9-8-9.6-8.8-10.9-1.4-2.3-2.1-4.6-2.1-7 0-3.6 1.7-6.7 4.3-9.3l2.9-2.9c1.4-1.4 3.5-1.4 4.9 0l6.4 6.4c.7.7 1 1.6 1 2.5 0 .9-.4 1.8-1 2.5l-2.6 2.6c-.3.3-.4.8-.1 1.2 1.4 2.5 3.9 5 6.4 6.4.4.2.9.1 1.2-.1l2.6-2.6c1.4-1.4 3.6-1.4 5 0l6.4 6.4c1.4 1.4 1.4 3.5 0 4.9l-2.9 2.9z" fill="#000000"/>
+        </svg>
+      </a>
+    </li>
+  </ul>
+</div>
+
 
     </div>
 </div>
