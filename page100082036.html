@@ -153,54 +153,32 @@
         </div>
 
 
-        <!-- ========================================== -->
-        <!-- БЛОК 2: КНОПКА "НАЗАД НА ГЛАВНУЮ"          -->
-        <!-- ========================================== -->
-        <div id="rec1637858281" class="r t-rec" data-record-type="393">
-            <div id="nav1637858281marker"></div>
-            <div id="nav1637858281" class="t393 t393__positionfixed" style="top:20px; left:100px; right:50px;">
-                <div class="t393__wrapper">
-                    <!-- Ссылка на главную страницу (href="/") -->
-                    <a class="t-btn t-btnflex t-btnflex_xl" href="index.html" style="
-    color:#333333;
-    background-color:#f2e5bf;
-    border: 2px solid #000000;
-    border-radius: 15px;
-    font-weight: 600;
+        <!-- ПРОСТАЯ КНОПКА "НАЗАД" (Без скриптов) -->
+<div style="
+    text-align: center; 
+    padding: 40px 20px; 
+    background-color: #ffffff;
 ">
-    <span class="t-btnflex__text">Wróć na stronę główną Twój Serwisant</span>
-</a>
-
-                </div>
-            </div>
-            
-            <!-- Скрипт поведения кнопки (появление при скролле) -->
-            <script>
-                t_onReady(function() {
-                    var rec = document.querySelector('#rec1637858281');
-                    if (!rec) return;
-                    t_onFuncLoad('t393_appearMenu', function() {
-                        t393_appearMenu('1.637858281e+09');
-                        window.addEventListener('scroll', t_throttle(function() {
-                            t393_appearMenu('1.637858281e+09');
-                        }));
-                    });
-                });
-            </script>
-        </div>
-
-    </div>
-
-    <!-- Подвал Тильды (Копирайт) -->
-    <div id="tildacopy" class="t-tildalabel t-tildalabel_gray">
-        <a href="https://tilda.cc/" class="t-tildalabel__link">
-            <div class="t-tildalabel__wrapper">
-                <div class="t-tildalabel__txtleft">Made on</div>
-                <div class="t-tildalabel__wrapimg"><img src="images/tildacopy_black.png" class="t-tildalabel__img"></div>
-                <div class="t-tildalabel__txtright">Tilda</div>
-            </div>
-        </a>
-    </div>
+    <a href="index.html" style="
+        display: inline-block;
+        text-decoration: none;
+        color: #333333;
+        background-color: #f2e5bf;
+        border: 2px solid #000000;
+        border-radius: 15px;
+        font-weight: 600;
+        padding: 15px 30px;
+        font-family: 'TildaSans', Arial, sans-serif;
+        font-size: 16px;
+        transition: 0.3s;
+        cursor: pointer;
+    " 
+    onmouseover="this.style.backgroundColor='#fae6ac'; this.style.color='#ff8562';" 
+    onmouseout="this.style.backgroundColor='#f2e5bf'; this.style.color='#333333';"
+    >
+        Wróć na stronę główną Twój Serwisant
+    </a>
+</div>
 
 </body>
 </html>
