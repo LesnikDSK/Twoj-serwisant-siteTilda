@@ -877,89 +877,83 @@ function handleFormSubmit(event) {
 
 <div class="contacts-grid" style="
     display: grid; 
-    grid-template-columns: 1fr 1fr; /* ПРИНУДИТЕЛЬНО 2 КОЛОНКИ */
-    gap: 30px; 
-    max-width: 960px; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; 
+    max-width: 750px; 
     margin: 0 auto 50px auto; 
     padding: 0 20px;
+    box-sizing: border-box;
 ">
     
-    <!-- Карточка 1: Контакты -->
+    <!-- Карточка 1 -->
     <div class="contact-card" style="
         font-family: 'TildaSans', Arial, sans-serif;
-        padding: 25px; /* Чуть меньше чем ваши стандартные 30px */
+        padding: 15px 20px;       /* УМЕНЬШИЛ: было 25px */
+        background: #f9f9f9;
+        border-radius: 12px;
+        border: 1px solid #e8e8e8;
         display: flex;
         flex-direction: column;
-        justify-content: center; /* Центрируем контент по вертикали */
-        ">   
-        <div style="margin-bottom: 5px;">
-            <span style="font-size: 22px; font-weight: 700; color: #000000;">tel. </span>
-            <a href="tel:+48455510637" style="font-size: 22px; font-weight: 700; color: rgb(147, 8, 8); text-decoration: none; border-bottom: none;">
-                +48 455 510 637
-            </a>
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        min-height: 140px;        /* УМЕНЬШИЛ: было 200px. Это делает их одинаково тонкими */
+    ">
+        <h3 class="card-title" style="font-size: 26px; color: #000000; margin: 0 0 10px 0;">Twój Serwisant</h3>
+        
+        <div style="margin-bottom: 3px;"> <!-- Уменьшил отступ -->
+            <span style="font-size: 20px; font-weight: 700; color: #000000;">tel. </span>
+            <a href="tel:+48455510637" style="font-size: 20px; font-weight: 700; color: rgb(147, 8, 8); text-decoration: none; border-bottom: none;">+48 455 510 637</a>
         </div>
         
         <div>
-            <span style="font-size: 22px; font-weight: 700; color: #000000;">email: </span>
-            <a href="mailto:stanislaw.kmit@gmail.com" style="font-size: 22px; font-weight: 700; color: rgb(147, 8, 8); text-decoration: none; border-bottom: none;">
-                stanislaw.kmit@gmail.com
-            </a>
+            <span style="font-size: 20px; font-weight: 700; color: #000000;">email </span>
+            <a href="mailto:stanislaw.kmit@gmail.com" style="font-size: 20px; font-weight: 700; color: rgb(147, 8, 8); text-decoration: none; border-bottom: none;">stanislaw.kmit@gmail.com</a>
         </div>
     </div>
     
-    <!-- Карточка 2: Адрес с Google Maps -->
-<div class="contact-card" style="
-    font-family: 'TildaSans', Arial, sans-serif;
-    padding: 25px;
-    background: #f9f9f9;
-    border-radius: 12px;
-    border: 1px solid #e8e8e8;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: left;
-    padding-left: 40px;
-    min-height: 200px;
-">
-    <div class="card-subtitle" style="font-size: 20px; line-height: 1.3;">
-        <div style="margin-bottom: 5px;">
-            <span style="font-weight: 700; color: #000000;">adres </span>
-            <span style="font-weight: 700; color: rgb(147, 8, 8);">
-                ul. Henryka Pobożnego 8/1A
-            </span>
-        </div>
-        <div style="margin-bottom: 10px;">
-            <span style="font-weight: 700; color: rgb(147, 8, 8);">
-                50-241 Wrocław, Polska
-            </span>
-        </div>
-        
-        <!-- Ссылка на Google Maps -->
-        <div>
-            <a href="https://www.google.com/maps/place/Serwis+komputerowy+Tw%C3%B3j+Serwisant/@51.1206631,17.039386,17z/data=!3m1!4b1!4m6!3m5!1s0x470fe9b50e75b4ff:0xe83c24387105acf4!8m2!3d51.1206631!4d17.0419609!16s%2Fg%2F11sz_z4y_z?entry=ttu" 
-               target="_blank" 
-               style="
-                   font-size: 18px; 
-                   font-weight: 700; 
-                   color: #1a73e8; /* Стандартный синий цвет Google Maps, или можно rgb(147, 8, 8) */
-                   text-decoration: underline;
-                   display: flex;
-                   align-items: center;
-                   gap: 5px;
-               ">
-               <!-- Иконка маркера (опционально, для красоты) -->
-               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                 <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
-               </svg>
-               Google Maps
-            </a>
+    <!-- Карточка 2 -->
+    <div class="contact-card" style="
+        font-family: 'TildaSans', Arial, sans-serif;
+        padding: 15px 20px;       /* УМЕНЬШИЛ */
+        background: #f9f9f9;
+        border-radius: 12px;
+        border: 1px solid #e8e8e8;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+        padding-left: 40px;
+        min-height: 140px;        /* УМЕНЬШИЛ: должно совпадать с первой карточкой */
+    ">
+        <div class="card-subtitle" style="font-size: 20px; line-height: 1.3;">
+            <div style="margin-bottom: 3px;">
+                <span style="font-weight: 700; color: #000000;">adres </span>
+                <span style="font-weight: 700; color: rgb(147, 8, 8);">
+                    ul. Henryka Pobożnego 8/1A
+                </span>
+            </div>
+            <div style="margin-bottom: 5px;">
+                <span style="font-weight: 700; color: rgb(147, 8, 8);">
+                    50-241 Wrocław, Polska
+                </span>
+            </div>
+            
+            <!-- Ссылка Google Maps -->
+            <div>
+                <a href="https://www.google.com/maps/place/Serwis+komputerowy+Tw%C3%B3j+Serwisant/@51.1206631,17.039386,17z/data=!3m1!4b1!4m6!3m5!1s0x470fe9b50e75b4ff:0xe83c24387105acf4!8m2!3d51.1206631!4d17.0419609!16s%2Fg%2F11sz_z4y_z?entry=ttu" 
+                   target="_blank" 
+                   style="font-size: 18px; font-weight: 700; color: #1a73e8; text-decoration: underline; display: flex; align-items: center; gap: 5px;">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+                   Google Maps
+                </a>
+            </div>
         </div>
     </div>
-</div>
-
 
 </div>
+
      
    
     <div class="t-sociallinks" style="text-align: center;">
