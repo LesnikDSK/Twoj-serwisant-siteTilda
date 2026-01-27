@@ -585,29 +585,29 @@ class="t-section__title t-title t-title_xs t-align_center t-margin_auto"
 
 /* === НАСТРОЙКИ ДЛЯ МОБИЛЬНЫХ (СЖАТИЕ) === */
 @media screen and (max-width: 640px) {
-    /* 1. Сжимаем серый блок */
-    #rec1635144721 {
-        padding-top: 5px !important;
-        padding-bottom: 5px !important;
-    }
+       /* === МОБИЛЬНОЕ МЕНЮ: КОМПАКТНО В 2-3 СТРОКИ === */
     
-    /* 2. Убираем лишние отступы внутри */
-    #rec1635144721 .t389__maincontainer,
-    #rec1635144721 .t389__col {
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
-        margin: 0 !important;
+    /* 1. Настраиваем контейнер списка */
+    #rec1635144721 .t389__list {
+        display: flex !important;           /* Включаем "гибкую" верстку */
+        flex-wrap: wrap !important;         /* Разрешаем перенос слов на новую строку */
+        justify-content: center !important; /* Центрируем всё по середине */
+        padding: 0 10px !important;         /* Небольшой отступ от краев экрана */
+        margin: 5px 0 !important;
     }
 
-    /* 3. Список меню */
-    #rec1635144721 .t389__list {
-        margin: 5px 0 !important;
-        padding: 0 !important;
-    }
+    /* 2. Настраиваем сами пункты меню */
     #rec1635144721 .t389__list_item {
-        margin: 0 !important;
-        padding: 0 !important;
-        line-height: 1.6 !important;
+        width: auto !important;             /* Ширина по размеру текста (а не на весь экран) */
+        display: block !important;
+        margin: 3px 8px !important;         /* ПРОБЕЛЫ: 3px сверху/снизу, 8px между словами */
+    }
+    
+    /* 3. Чуть уменьшаем шрифт, чтобы точно влезло в 2 строки */
+    #rec1635144721 .t389__list_item a {
+        font-size: 13px !important;
+        line-height: 1.4 !important;
+        white-space: nowrap !important;     /* Запрещаем разрывать словосочетания (например "Co robimy") */
     }
 }
 </style>
