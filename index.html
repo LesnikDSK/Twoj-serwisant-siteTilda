@@ -538,69 +538,68 @@ class="t-section__title t-title t-title_xs t-align_center t-margin_auto"
     </div>
     
     <style>
-       <style>
-/* === ГЛАВНЫЕ НАСТРОЙКИ ПОДВАЛА === */
+/* === ОБЩИЕ НАСТРОЙКИ (РАБОТАЮТ ВСЕГДА) === */
 #rec1635144721 {
+    /* Главный механизм растягивания на весь экран */
     width: 100vw !important;
     max-width: 100vw !important;
     position: relative !important;
     left: 50% !important;
     margin-left: -50vw !important;
+    
+    box-sizing: border-box !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
-    box-sizing: border-box !important;
 }
 
 #rec1635144721 .t-sectioncontainer {
     width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 !important;
+    max-width: 1200px !important; /* Ограничиваем контент по ширине, чтобы было красиво */
+    margin: 0 auto !important;    /* Центрируем контент */
+    padding: 0 20px !important;   /* Отступы контента от краев экрана */
 }
 
-/* Цвета текста */
+/* Цвета */
 #rec1635144721 .t389__list_item a { color: #fae6ac; }
 #rec1635144721 .t389__copyright { color: #ffffff; }
 
-/* === МОБИЛЬНАЯ ВЕРСИЯ (СИЛЬНОЕ СЖАТИЕ) === */
-@media screen and (max-width: 640px) {
-    /* 1. Сжимаем сам серый блок */
+/* === НАСТРОЙКИ ДЛЯ ДЕСКТОПА (ОБЫЧНЫЕ ОТСТУПЫ) === */
+@media screen and (min-width: 641px) {
     #rec1635144721 {
-        padding-top: 5px !important;    /* <--- Минимальный отступ сверху */
-        padding-bottom: 5px !important; /* <--- Минимальный отступ снизу */
-        min-height: auto !important;     /* Запрещаем минимальную высоту */
+        padding-top: 30px !important;    /* Нормальный отступ сверху */
+        padding-bottom: 30px !important; /* Нормальный отступ снизу */
     }
+}
 
-    /* 2. Убираем отступы у внутренних контейнеров Тильды */
+/* === НАСТРОЙКИ ДЛЯ МОБИЛЬНЫХ (СЖАТИЕ) === */
+@media screen and (max-width: 640px) {
+    /* 1. Сжимаем серый блок */
+    #rec1635144721 {
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
+    }
+    
+    /* 2. Убираем лишние отступы внутри */
     #rec1635144721 .t389__maincontainer,
-    #rec1635144721 .t389__content,
     #rec1635144721 .t389__col {
         padding-top: 0 !important;
         padding-bottom: 0 !important;
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-        height: auto !important; /* Запрещаем фиксированную высоту */
+        margin: 0 !important;
     }
 
-    /* 3. Сжимаем список меню */
+    /* 3. Список меню */
     #rec1635144721 .t389__list {
-        margin-top: 5px !important;     /* Чуть-чуть отступа от верха */
-        margin-bottom: 5px !important;  /* Чуть-чуть отступа до копирайта */
+        margin: 5px 0 !important;
         padding: 0 !important;
     }
-
     #rec1635144721 .t389__list_item {
         margin: 0 !important;
         padding: 0 !important;
-        line-height: 1.6 !important; /* Высота строки меню */
-    }
-
-    /* 4. Копирайт */
-    #rec1635144721 .t389__copyright {
-        margin-top: 0 !important;
-        padding-bottom: 5px !important; /* Отступ от текста до нижнего края */
+        line-height: 1.6 !important;
     }
 }
 </style>
+
 
 </div>
 
