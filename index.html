@@ -569,7 +569,19 @@ class="t-section__title t-title t-title_xs t-align_center t-margin_auto"
         padding-top: 30px !important;    /* Нормальный отступ сверху */
         padding-bottom: 30px !important; /* Нормальный отступ снизу */
     }
+
+    /* === ВСТАВЛЯЕМ СЮДА: Делаем меню в одну строку === */
+    #rec1635144721 .t389__list {
+        text-align: center !important; /* Центрируем весь список */
+    }
+    
+    #rec1635144721 .t389__list_item {
+        display: inline-block !important; /* Выстраиваем пункты в ряд */
+        margin: 0 15px !important;        /* Добавляем воздух между словами */
+        float: none !important;           /* Убираем лишнее, на всякий случай */
+    }
 }
+
 
 /* === НАСТРОЙКИ ДЛЯ МОБИЛЬНЫХ (СЖАТИЕ) === */
 @media screen and (max-width: 640px) {
