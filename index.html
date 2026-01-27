@@ -789,27 +789,41 @@ function handleFormSubmit(event) {
             }
         }
 
-        @media screen and (max-width: 480px) {
+               @media screen and (max-width: 480px) {
+            #rec1613364601-contacts .contacts-grid {
+                /* === ВОТ ГЛАВНОЕ ИСПРАВЛЕНИЕ === */
+                display: grid !important;              /* Принудительно включаем сетку */
+                grid-template-columns: 1fr !important; /* Принудительно 1 колонка (одна фракция) */
+                /* =============================== */
+                
+                padding: 0 20px;
+                gap: 20px; /* Добавил отступ между карточками по вертикали */
+            }
+
             #rec1613364601-contacts .contact-card {
                 padding: 20px;
                 gap: 15px;
+                width: 100% !important; /* На всякий случай растягиваем карточку */
+                box-sizing: border-box !important;
             }
+            
             #rec1613364601-contacts .card-title {
                 font-size: 20px;
             }
+            
             #rec1613364601-contacts .social-btn {
                 padding: 10px 20px;
                 font-size: 14px;
                 flex: 1;
                 min-width: 140px;
             }
-            #rec1613364601-contacts .contacts-grid {
-                padding: 0 20px;
-            }
+            
             #rec1613364601-contacts .sociallinks-row {
                 padding: 0 20px;
+                flex-wrap: wrap; /* Разрешаем кнопкам переноситься, если не влезут */
             }
         }
+
     </style>
 
 <div class="t718">
