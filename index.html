@@ -883,7 +883,7 @@ function handleFormSubmit(event) {
                 <!-- Поле Телефон -->
                 <div class="my-input-group">
                     <label class="my-label t-descr t-descr_xxs" style="opacity:0.7;">Numer telefonu</label>
-                    <input type="tel" name="phone" id="myPhoneField" class="my-input t-input" placeholder="+48 455 510 637" style="font-family:'TildaSans',Arial,sans-serif;">
+                    <input type="tel" name="phone" id="myPhoneField" class="my-input t-input" placeholder="+48 000 000 000" style="font-family:'TildaSans',Arial,sans-serif;">
                     <div class="my-field-error"></div>
                 </div>
 
@@ -1067,18 +1067,24 @@ function handleFormSubmit(event) {
             var formData = new FormData(form);
 
             // Валидация
+         /* 
             var name = formData.get('name');
             if (!name || name.trim() === "") {
                 showError(form.querySelector('input[name="name"]'), "Proszę wpisać imię");
                 isValid = false;
             }
-
+          */
+                       // --- EMAIL (ТЕПЕРЬ НЕОБЯЗАТЕЛЬНО) ---
             var email = formData.get('replyto');
-            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!email || !emailRegex.test(email)) {
+            var emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+            
+            // ИЗМЕНЕНИЕ: Добавили "email && email.trim() !== ''" 
+            // Это значит: проверяем на ошибки ТОЛЬКО если поле не пустое.
+            if (email && email.trim() !== "" && !emailRegex.test(email)) {
                 showError(form.querySelector('input[name="replyto"]'), "Proszę podać poprawny e-mail");
                 isValid = false;
             }
+
 
             var phone = formData.get('phone');
             if (!phone || phone.trim().length < 9) {
@@ -1086,11 +1092,18 @@ function handleFormSubmit(event) {
                 isValid = false;
             }
 
+                       // --- СООБЩЕНИЕ (ТЕПЕРЬ НЕОБЯЗАТЕЛЬНО) ---
+            // ИЗМЕНЕНИЕ: Мы просто закомментировали проверку.
+            // Теперь, если поле пустое, ошибка не выскочит.
+            
+            /* 
             var message = formData.get('message');
             if (!message || message.trim() === "") {
                 showError(form.querySelector('textarea[name="message"]'), "Proszę opisać problem");
                 isValid = false;
-            }
+            } 
+            */
+
 
             if (!isValid) return;
 
