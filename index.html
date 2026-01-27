@@ -540,77 +540,93 @@ class="t-section__title t-title t-title_xs t-align_center t-margin_auto"
     <style>
 /* === ОБЩИЕ НАСТРОЙКИ (РАБОТАЮТ ВСЕГДА) === */
 #rec1635144721 {
-    /* Главный механизм растягивания на весь экран */
     width: 100vw !important;
     max-width: 100vw !important;
     position: relative !important;
     left: 50% !important;
     margin-left: -50vw !important;
-    
     box-sizing: border-box !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
+    
+    /* Добавляем дефолтные отступы (для десктопа) прямо сюда */
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
 }
 
 #rec1635144721 .t-sectioncontainer {
     width: 100% !important;
-    max-width: 1200px !important; /* Ограничиваем контент по ширине, чтобы было красиво */
-    margin: 0 auto !important;    /* Центрируем контент */
-    padding: 0 20px !important;   /* Отступы контента от краев экрана */
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
 }
 
 /* Цвета */
 #rec1635144721 .t389__list_item a { color: #fae6ac; }
 #rec1635144721 .t389__copyright { color: #ffffff; }
 
-    /* === ПРИНУДИТЕЛЬНАЯ СТРОКА ЧЕРЕЗ FLEX === */
+/* === НАСТРОЙКИ ДЛЯ ДЕСКТОПА (МЕНЮ В СТРОКУ) === */
+/* Важно: эти настройки должны работать ТОЛЬКО на компьютере */
+@media screen and (min-width: 641px) {
     #rec1635144721 .t389__list {
         display: flex !important;
-        flex-direction: row !important;       /* Строго горизонтально */
-        justify-content: center !important;   /* По центру */
-        flex-wrap: wrap !important;           /* Если не влезет - перенесет, но постарается в ряд */
+        flex-direction: row !important;
+        justify-content: center !important;
+        flex-wrap: wrap !important;
         width: 100% !important;
         padding: 0 !important;
-        list-style: none !important;          /* Убираем точки списка */
+        list-style: none !important;
     }
     
     #rec1635144721 .t389__list_item {
-        display: block !important;            /* Для флекса это нормально */
-        margin: 0 15px !important;            /* Отступы */
-        width: auto !important;               /* Ширина по тексту */
+        display: block !important;
+        margin: 0 15px !important;
+        width: auto !important;
         float: none !important;
     }
-
-
+}
 
 /* === НАСТРОЙКИ ДЛЯ МОБИЛЬНЫХ (СЖАТИЕ) === */
 @media screen and (max-width: 640px) {
-       /* === МОБИЛЬНОЕ МЕНЮ: КОМПАКТНО В 2-3 СТРОКИ === */
     
-    /* 1. Настраиваем контейнер списка */
+    /* <--- ВОТ ЭТОГО КУСКА У ВАС НЕ ХВАТАЛО! ВСТАВЛЯЕМ ЕГО: */
+    #rec1635144721 {
+        padding-top: 5px !important;    /* Сплющиваем верх */
+        padding-bottom: 5px !important; /* Сплющиваем низ */
+    }
+    
+    /* Дополнительно убираем отступы у колонок, чтобы не распирало */
+    #rec1635144721 .t389__col, 
+    #rec1635144721 .t389__maincontainer {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        margin: 0 !important;
+    }
+    /* ----------------------------------------------------- */
+
+    /* 1. Настраиваем контейнер списка (Ваш код) */
     #rec1635144721 .t389__list {
-        display: flex !important;           /* Включаем "гибкую" верстку */
-        flex-wrap: wrap !important;         /* Разрешаем перенос слов на новую строку */
-        justify-content: center !important; /* Центрируем всё по середине */
-        padding: 0 10px !important;         /* Небольшой отступ от краев экрана */
-        margin: 5px 0 !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        padding: 0 10px !important;
+        margin: 5px 0 !important; /* Чуть уменьшил отступ */
     }
 
-    /* 2. Настраиваем сами пункты меню */
+    /* 2. Настраиваем сами пункты меню (Ваш код) */
     #rec1635144721 .t389__list_item {
-        width: auto !important;             /* Ширина по размеру текста (а не на весь экран) */
+        width: auto !important;
         display: block !important;
-        margin: 3px 8px !important;         /* ПРОБЕЛЫ: 3px сверху/снизу, 8px между словами */
+        margin: 3px 8px !important;
     }
     
-    /* 3. Чуть уменьшаем шрифт, чтобы точно влезло в 2 строки */
+    /* 3. Шрифт (Ваш код) */
     #rec1635144721 .t389__list_item a {
         font-size: 13px !important;
         line-height: 1.4 !important;
-        white-space: nowrap !important;     /* Запрещаем разрывать словосочетания (например "Co robimy") */
+        white-space: nowrap !important;
     }
 }
-</style>
 
 
 </div>
